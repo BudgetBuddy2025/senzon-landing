@@ -63,6 +63,7 @@
       background: radial-gradient(circle at top, #151528 0, #050509 55%);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
     a { color: var(--accent2); text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -70,19 +71,20 @@
     .page {
       max-width: 960px;
       margin: 0 auto;
-      padding: 32px 16px 64px;
+      padding: 16px 16px 64px;
     }
 
     /* Logo + glitch/ripple */
     .logo-wrap {
       display: flex;
       justify-content: center;
-      margin-bottom: 32px;
+      margin-bottom: 16px;
       position: relative;
     }
     .logo {
       position: relative;
-      width: 600px;
+      width: 75%;
+      max-width: 720px;
       filter: drop-shadow(0 0 18px rgba(123, 92, 255, 0.6));
     }
     .logo img {
@@ -200,9 +202,55 @@
       font-size: 0.8rem;
       color: var(--muted);
     }
+
+    /* Animated gradient orb */
+    .bg-orb {
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(123,92,255,0.08) 0%, transparent 70%);
+      animation: orbPulse 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes orbPulse {
+      0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+      50% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+    }
+    .page { position: relative; z-index: 1; }
+
+    /* Particles canvas */
+    #particles-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Typewriter cursor */
+    .typewriter-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background: var(--accent2);
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blink 0.8s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
   </style>
 </head>
 <body>
+    <div class="bg-orb"></div>
+    <canvas id="particles-canvas"></canvas>
   <div class="page">
     <div class="logo-wrap">
       <div class="logo">
@@ -211,7 +259,7 @@
     </div>
 
     <header class="center">
-      <h1>AI Operator for Hire</h1>
+      <h1 id="main-headline">AI Operator for Hire</h1>
       <p class="sub">
         SenZon™ builds and launches real products in days, not months.  
         Non‑technical founder, technical‑level output.
@@ -325,7 +373,387 @@
   </div>
 
   <script>
-    // Optional: small scroll hint or future JS hooks can go here.
+    // ── Particles ──
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    function createParticle() {
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5 + 0.3,
+        dx: (Math.random() - 0.5) * 0.3,
+        dy: -Math.random() * 0.4 - 0.1,
+        opacity: Math.random() * 0.5 + 0.1,
+        color: Math.random() > 0.5 ? '123,92,255' : '63,213,255'
+      };
+    }
+    for (let i = 0; i < 90; i++) particles.push(createParticle());
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, i) => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.color},${p.opacity})`;
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.y < -5) particles[i] = createParticle();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // ── Typewriter ──
+    const headlines = {
+      en: "AI Operator for Hire",
+      it: "Operatore AI a Noleggio",
+      es: "Operador de IA por Encargo",
+      fr: "Opérateur IA à la Demande",
+      de: "KI-Operator auf Abruf",
+      pt: "Operador de IA para Contratar",
+      pl: "Operator AI do Wynajęcia"
+    };
+    function getLang() {
+      const b = (navigator.language || navigator.userLanguage || 'en').toLowerCase().slice(0,2);
+      return headlines[b] ? b : 'en';
+    }
+    function typewrite(el, text, speed = 55) {
+      el.textContent = '';
+      const cursor = document.createElement('span');
+      cursor.className = 'typewriter-cursor';
+      el.appendChild(cursor);
+      let i = 0;
+      const interval = setInterval(() => {
+        el.insertBefore(document.createTextNode(text[i]), cursor);
+        i++;
+        if (i >= text.length) {
+          clearInterval(interval);
+          setTimeout(() => cursor.remove(), 2000);
+        }
+      }, speed);
+    }
+    window.addEventListener('DOMContentLoaded', () => {
+      const lang = getLang();
+      const el = document.getElementById('main-headline');
+      if (el) typewrite(el, headlines[lang]);
+      applyTranslations(lang);
+    });
+
+    // ── i18n ──
+    const translations = {
+      en: {
+        tagWhy: "Why SenZon™",
+        h2Why: "Built for founders who need execution, not theory",
+        h3Real: "Real products shipped",
+        pReal: "Multiple PWAs and SaaS tools built using AI at founder‑speed.",
+        h3Strategy: "Strategy + build in one",
+        pStrategy: "Business management and marketing training combined with hands‑on product creation.",
+        tagServices: "Services",
+        h2Services: "Outcomes SenZon™ delivers",
+        h3Mvp: "AI‑Built MVP in 14 Days",
+        pMvp: "From idea to working product fast, so founders can test, sell, and iterate.",
+        h3Marketing: "AI‑Powered Marketing Execution",
+        pMarketing: "Landing pages, funnels, and content systems that match the product and audience.",
+        h3Auto: "AI Automation for SMEs",
+        pAuto: "Automate repetitive work so teams can focus on high‑value tasks.",
+        tagBuilt: "Built by SenZon™",
+        h2Built: "See what's already live",
+        h3Postmio: "PostMio™",
+        pPostmio: "Social media and review‑flow SaaS for local businesses.",
+        h3DrThorne: "Dr. Thorne: Phantom Sector™",
+        pDrThorne: "PWA escape‑style game, built fast with AI and shipped to the web.",
+        h3Book: "Book a Discovery Call",
+        pBook: "Got an idea? Let's scope it in 15 minutes — no fluff, just execution.",
+        aBook: "→ Email to Book",
+        tagFounder: "Founder",
+        h2Founder: "Zero code. Zero prior knowledge. Two live products in 45 days.",
+        pFounder: "One SaaS. One PWA game — shipped in 3 days. Both built entirely with AI, from nothing. No agency. No dev team. No shortcuts except the right ones.",
+        h3PostmioF: "PostMio™ — SaaS",
+        pPostmioF: "Social media + review-flow tool for local businesses. Designed, built, and live.",
+        h3DrThorneF: "Dr. Thorne™ — PWA Game",
+        pDrThorneF: "Escape-style browser game. Concept to shipped product:",
+        h3Pipeline: "More Drops in Pipeline",
+        pPipeline: "3 more products in development. SaaS tools, emotional tech, and beyond. Building in public.",
+        tagContact: "Start",
+        h2Contact: "Ready to ship your product?",
+        pContact: "Start with a quick email to define the outcome, scope the build, and lock in a timeline.",
+        footer: "SenZon™ · AI Operator for Hire · Built with unreasonable speed (the good kind)."
+      },
+      it: {
+        tagWhy: "Perché SenZon™",
+        h2Why: "Costruito per founder che vogliono esecuzione, non teoria",
+        h3Real: "Prodotti reali spediti",
+        pReal: "Più PWA e strumenti SaaS costruiti con AI alla velocità del founder.",
+        h3Strategy: "Strategia + build in uno",
+        pStrategy: "Formazione in gestione aziendale e marketing combinata con la creazione pratica di prodotti.",
+        tagServices: "Servizi",
+        h2Services: "Risultati che SenZon™ consegna",
+        h3Mvp: "MVP con AI in 14 giorni",
+        pMvp: "Dall'idea al prodotto funzionante in fretta, per testare, vendere e iterare.",
+        h3Marketing: "Esecuzione Marketing con AI",
+        pMarketing: "Landing page, funnel e sistemi di contenuto allineati al prodotto e al pubblico.",
+        h3Auto: "Automazione AI per PMI",
+        pAuto: "Automatizza il lavoro ripetitivo così il team si concentra sulle attività ad alto valore.",
+        tagBuilt: "Costruito da SenZon™",
+        h2Built: "Guarda cosa è già live",
+        h3Postmio: "PostMio™",
+        pPostmio: "SaaS per social media e flusso recensioni per aziende locali.",
+        h3DrThorne: "Dr. Thorne: Phantom Sector™",
+        pDrThorne: "Gioco PWA stile escape, costruito velocemente con AI e pubblicato sul web.",
+        h3Book: "Prenota una Discovery Call",
+        pBook: "Hai un'idea? Definiamola in 15 minuti — zero teoria, solo esecuzione.",
+        aBook: "→ Scrivi per prenotare",
+        tagFounder: "Founder",
+        h2Founder: "Zero codice. Zero conoscenze. Due prodotti live in 45 giorni.",
+        pFounder: "Un SaaS. Un gioco PWA — spedito in 3 giorni. Entrambi costruiti interamente con AI, dal nulla. Nessuna agenzia. Nessun team di sviluppo.",
+        h3PostmioF: "PostMio™ — SaaS",
+        pPostmioF: "Strumento per social media + recensioni per aziende locali. Progettato, costruito e live.",
+        h3DrThorneF: "Dr. Thorne™ — Gioco PWA",
+        pDrThorneF: "Gioco browser stile escape. Dal concept al prodotto spedito:",
+        h3Pipeline: "Altri Prodotti in Arrivo",
+        pPipeline: "3 altri prodotti in sviluppo. SaaS, tech emotivo e altro. Building in public.",
+        tagContact: "Inizia",
+        h2Contact: "Pronto a lanciare il tuo prodotto?",
+        pContact: "Inizia con una email veloce per definire l'obiettivo, lo scope e la timeline.",
+        footer: "SenZon™ · Operatore AI · Costruito con velocità irragionevole (nel senso buono)."
+      },
+      es: {
+        tagWhy: "Por qué SenZon™",
+        h2Why: "Construido para founders que necesitan ejecución, no teoría",
+        h3Real: "Productos reales enviados",
+        pReal: "Múltiples PWAs y herramientas SaaS construidas con IA a velocidad de founder.",
+        h3Strategy: "Estrategia + build en uno",
+        pStrategy: "Formación en gestión empresarial y marketing combinada con creación práctica de productos.",
+        tagServices: "Servicios",
+        h2Services: "Resultados que entrega SenZon™",
+        h3Mvp: "MVP con IA en 14 días",
+        pMvp: "De la idea al producto funcional rápido, para testear, vender e iterar.",
+        h3Marketing: "Ejecución de Marketing con IA",
+        pMarketing: "Landing pages, funnels y sistemas de contenido alineados al producto y al público.",
+        h3Auto: "Automatización IA para PYMEs",
+        pAuto: "Automatiza el trabajo repetitivo para que el equipo se enfoque en tareas de alto valor.",
+        tagBuilt: "Construido por SenZon™",
+        h2Built: "Mira lo que ya está live",
+        h3Postmio: "PostMio™",
+        pPostmio: "SaaS de redes sociales y flujo de reseñas para negocios locales.",
+        h3DrThorne: "Dr. Thorne: Phantom Sector™",
+        pDrThorne: "Juego PWA estilo escape, construido rápido con IA y publicado en la web.",
+        h3Book: "Reserva una Discovery Call",
+        pBook: "¿Tienes una idea? Definámosla en 15 minutos — sin rodeos, solo ejecución.",
+        aBook: "→ Email para reservar",
+        tagFounder: "Founder",
+        h2Founder: "Cero código. Cero conocimiento previo. Dos productos live en 45 días.",
+        pFounder: "Un SaaS. Un juego PWA — enviado en 3 días. Ambos construidos íntegramente con IA, desde cero. Sin agencia. Sin equipo de desarrollo.",
+        h3PostmioF: "PostMio™ — SaaS",
+        pPostmioF: "Herramienta de redes sociales + reseñas para negocios locales. Diseñada, construida y live.",
+        h3DrThorneF: "Dr. Thorne™ — Juego PWA",
+        pDrThorneF: "Juego de navegador estilo escape. Del concepto al producto enviado:",
+        h3Pipeline: "Más Productos en Pipeline",
+        pPipeline: "3 productos más en desarrollo. SaaS, tech emocional y más. Building in public.",
+        tagContact: "Empieza",
+        h2Contact: "¿Listo para lanzar tu producto?",
+        pContact: "Empieza con un email rápido para definir el objetivo, el alcance y el timeline.",
+        footer: "SenZon™ · Operador IA · Construido con velocidad irrazonable (del bueno)."
+      },
+      fr: {
+        tagWhy: "Pourquoi SenZon™",
+        h2Why: "Conçu pour les founders qui ont besoin d'exécution, pas de théorie",
+        h3Real: "Vrais produits livrés",
+        pReal: "Plusieurs PWA et outils SaaS construits avec l'IA à la vitesse d'un founder.",
+        h3Strategy: "Stratégie + build en un",
+        pStrategy: "Formation en gestion d'entreprise et marketing combinée à la création pratique de produits.",
+        tagServices: "Services",
+        h2Services: "Ce que SenZon™ livre",
+        h3Mvp: "MVP avec IA en 14 jours",
+        pMvp: "De l'idée au produit fonctionnel rapidement, pour tester, vendre et itérer.",
+        h3Marketing: "Exécution Marketing avec IA",
+        pMarketing: "Landing pages, funnels et systèmes de contenu adaptés au produit et au public.",
+        h3Auto: "Automatisation IA pour PME",
+        pAuto: "Automatisez le travail répétitif pour que l'équipe se concentre sur les tâches à haute valeur.",
+        tagBuilt: "Construit par SenZon™",
+        h2Built: "Voyez ce qui est déjà en ligne",
+        h3Postmio: "PostMio™",
+        pPostmio: "SaaS de médias sociaux et flux d'avis pour les entreprises locales.",
+        h3DrThorne: "Dr. Thorne: Phantom Sector™",
+        pDrThorne: "Jeu PWA style escape, construit rapidement avec IA et publié sur le web.",
+        h3Book: "Réservez un Discovery Call",
+        pBook: "Vous avez une idée ? Cadrons-la en 15 minutes — pas de blabla, juste de l'exécution.",
+        aBook: "→ Email pour réserver",
+        tagFounder: "Fondateur",
+        h2Founder: "Zéro code. Zéro connaissance préalable. Deux produits live en 45 jours.",
+        pFounder: "Un SaaS. Un jeu PWA — livré en 3 jours. Les deux construits entièrement avec IA, de zéro. Pas d'agence. Pas d'équipe de dev.",
+        h3PostmioF: "PostMio™ — SaaS",
+        pPostmioF: "Outil de médias sociaux + avis pour entreprises locales. Conçu, construit et en ligne.",
+        h3DrThorneF: "Dr. Thorne™ — Jeu PWA",
+        pDrThorneF: "Jeu navigateur style escape. Du concept au produit livré :",
+        h3Pipeline: "Plus de Produits en Pipeline",
+        pPipeline: "3 autres produits en développement. SaaS, tech émotionnel et plus. Building in public.",
+        tagContact: "Commencer",
+        h2Contact: "Prêt à lancer votre produit ?",
+        pContact: "Commencez par un email rapide pour définir l'objectif, le périmètre et le calendrier.",
+        footer: "SenZon™ · Opérateur IA · Construit à une vitesse déraisonnable (dans le bon sens)."
+      },
+      de: {
+        tagWhy: "Warum SenZon™",
+        h2Why: "Gebaut für Gründer, die Ausführung brauchen, keine Theorie",
+        h3Real: "Echte Produkte geliefert",
+        pReal: "Mehrere PWAs und SaaS-Tools mit KI in Gründergeschwindigkeit gebaut.",
+        h3Strategy: "Strategie + Build in einem",
+        pStrategy: "Unternehmensführung und Marketing-Ausbildung kombiniert mit praktischer Produkterstellung.",
+        tagServices: "Leistungen",
+        h2Services: "Was SenZon™ liefert",
+        h3Mvp: "KI-MVP in 14 Tagen",
+        pMvp: "Von der Idee zum funktionierenden Produkt — schnell testen, verkaufen und iterieren.",
+        h3Marketing: "KI-Marketing-Ausführung",
+        pMarketing: "Landing Pages, Funnels und Content-Systeme passend zu Produkt und Zielgruppe.",
+        h3Auto: "KI-Automatisierung für KMU",
+        pAuto: "Automatisiere repetitive Arbeit, damit sich das Team auf wertschöpfende Aufgaben konzentriert.",
+        tagBuilt: "Von SenZon™ gebaut",
+        h2Built: "Sieh, was bereits live ist",
+        h3Postmio: "PostMio™",
+        pPostmio: "SaaS für Social Media und Bewertungsfluss für lokale Unternehmen.",
+        h3DrThorne: "Dr. Thorne: Phantom Sector™",
+        pDrThorne: "PWA Escape-Spiel, schnell mit KI gebaut und im Web veröffentlicht.",
+        h3Book: "Discovery Call buchen",
+        pBook: "Hast du eine Idee? Lass sie uns in 15 Minuten skizzieren — kein Blabla, nur Ausführung.",
+        aBook: "→ Email zum Buchen",
+        tagFounder: "Gründer",
+        h2Founder: "Null Code. Null Vorkenntnisse. Zwei Live-Produkte in 45 Tagen.",
+        pFounder: "Ein SaaS. Ein PWA-Spiel — in 3 Tagen geliefert. Beide komplett mit KI gebaut, von Null. Keine Agentur. Kein Entwicklerteam.",
+        h3PostmioF: "PostMio™ — SaaS",
+        pPostmioF: "Social Media + Bewertungstool für lokale Unternehmen. Entworfen, gebaut und live.",
+        h3DrThorneF: "Dr. Thorne™ — PWA Spiel",
+        pDrThorneF: "Browser-Escape-Spiel. Vom Konzept zum fertigen Produkt:",
+        h3Pipeline: "Mehr Produkte in der Pipeline",
+        pPipeline: "3 weitere Produkte in Entwicklung. SaaS, Emotional Tech und mehr. Building in public.",
+        tagContact: "Starten",
+        h2Contact: "Bereit, dein Produkt zu launchen?",
+        pContact: "Starte mit einer kurzen E-Mail, um Ziel, Umfang und Timeline festzulegen.",
+        footer: "SenZon™ · KI-Operator · Gebaut mit unvernünftiger Geschwindigkeit (die gute Art)."
+      },
+      pt: {
+        tagWhy: "Por que SenZon™",
+        h2Why: "Feito para founders que precisam de execução, não teoria",
+        h3Real: "Produtos reais entregues",
+        pReal: "Vários PWAs e ferramentas SaaS construídos com IA na velocidade do founder.",
+        h3Strategy: "Estratégia + build em um",
+        pStrategy: "Formação em gestão empresarial e marketing combinada com criação prática de produtos.",
+        tagServices: "Serviços",
+        h2Services: "Resultados que a SenZon™ entrega",
+        h3Mvp: "MVP com IA em 14 dias",
+        pMvp: "Da ideia ao produto funcional rápido, para testar, vender e iterar.",
+        h3Marketing: "Execução de Marketing com IA",
+        pMarketing: "Landing pages, funis e sistemas de conteúdo alinhados ao produto e ao público.",
+        h3Auto: "Automação IA para PMEs",
+        pAuto: "Automatize o trabalho repetitivo para que a equipe foque em tarefas de alto valor.",
+        tagBuilt: "Construído pela SenZon™",
+        h2Built: "Veja o que já está no ar",
+        h3Postmio: "PostMio™",
+        pPostmio: "SaaS de redes sociais e fluxo de avaliações para negócios locais.",
+        h3DrThorne: "Dr. Thorne: Phantom Sector™",
+        pDrThorne: "Jogo PWA estilo escape, construído rápido com IA e publicado na web.",
+        h3Book: "Agendar uma Discovery Call",
+        pBook: "Tem uma ideia? Vamos defini-la em 15 minutos — sem enrolação, só execução.",
+        aBook: "→ Email para agendar",
+        tagFounder: "Fundador",
+        h2Founder: "Zero código. Zero conhecimento prévio. Dois produtos no ar em 45 dias.",
+        pFounder: "Um SaaS. Um jogo PWA — entregue em 3 dias. Ambos construídos inteiramente com IA, do zero. Sem agência. Sem equipe de dev.",
+        h3PostmioF: "PostMio™ — SaaS",
+        pPostmioF: "Ferramenta de redes sociais + avaliações para negócios locais. Projetada, construída e no ar.",
+        h3DrThorneF: "Dr. Thorne™ — Jogo PWA",
+        pDrThorneF: "Jogo de navegador estilo escape. Do conceito ao produto entregue:",
+        h3Pipeline: "Mais Produtos no Pipeline",
+        pPipeline: "3 outros produtos em desenvolvimento. SaaS, tech emocional e mais. Building in public.",
+        tagContact: "Começar",
+        h2Contact: "Pronto para lançar seu produto?",
+        pContact: "Comece com um email rápido para definir o objetivo, o escopo e o prazo.",
+        footer: "SenZon™ · Operador IA · Construído com velocidade absurda (do jeito bom)."
+      },
+      pl: {
+        tagWhy: "Dlaczego SenZon™",
+        h2Why: "Stworzony dla founderów, którzy potrzebują działania, nie teorii",
+        h3Real: "Prawdziwe produkty dostarczone",
+        pReal: "Wiele PWA i narzędzi SaaS zbudowanych z AI z prędkością foundera.",
+        h3Strategy: "Strategia + build w jednym",
+        pStrategy: "Szkolenie z zarządzania biznesem i marketingu połączone z praktycznym tworzeniem produktów.",
+        tagServices: "Usługi",
+        h2Services: "Co dostarcza SenZon™",
+        h3Mvp: "MVP z AI w 14 dni",
+        pMvp: "Od pomysłu do działającego produktu szybko — testuj, sprzedawaj i iteruj.",
+        h3Marketing: "Realizacja Marketingu z AI",
+        pMarketing: "Landing page, lejki i systemy treści dopasowane do produktu i odbiorców.",
+        h3Auto: "Automatyzacja AI dla MŚP",
+        pAuto: "Automatyzuj powtarzalną pracę, by zespół skupił się na zadaniach wysokiej wartości.",
+        tagBuilt: "Zbudowane przez SenZon™",
+        h2Built: "Zobacz co już działa",
+        h3Postmio: "PostMio™",
+        pPostmio: "SaaS do mediów społecznościowych i przepływu recenzji dla lokalnych firm.",
+        h3DrThorne: "Dr. Thorne: Phantom Sector™",
+        pDrThorne: "Gra PWA w stylu escape, zbudowana szybko z AI i opublikowana w sieci.",
+        h3Book: "Zarezerwuj Discovery Call",
+        pBook: "Masz pomysł? Zdefiniujmy go w 15 minut — bez owijania w bawełnę, tylko działanie.",
+        aBook: "→ Email, aby zarezerwować",
+        tagFounder: "Founder",
+        h2Founder: "Zero kodu. Zero wiedzy. Dwa produkty live w 45 dni.",
+        pFounder: "Jeden SaaS. Jedna gra PWA — dostarczona w 3 dni. Oba zbudowane w całości z AI, od zera. Żadnej agencji. Żadnego zespołu deweloperów.",
+        h3PostmioF: "PostMio™ — SaaS",
+        pPostmioF: "Narzędzie do mediów społecznościowych + recenzji dla lokalnych firm. Zaprojektowane, zbudowane i live.",
+        h3DrThorneF: "Dr. Thorne™ — Gra PWA",
+        pDrThorneF: "Przeglądarkowa gra escape. Od konceptu do dostarczonego produktu:",
+        h3Pipeline: "Więcej Produktów w Pipeline",
+        pPipeline: "3 kolejne produkty w fazie rozwoju. SaaS, tech emocjonalny i nie tylko. Building in public.",
+        tagContact: "Zacznij",
+        h2Contact: "Gotowy na launch produktu?",
+        pContact: "Zacznij od szybkiego emaila, aby określić cel, zakres i harmonogram.",
+        footer: "SenZon™ · Operator AI · Zbudowane z nieracjonalną prędkością (tą dobrą)."
+      }
+    };
+
+    function applyTranslations(lang) {
+      const t = translations[lang] || translations['en'];
+      const set = (sel, key, attr) => {
+        const el = document.querySelector(sel);
+        if (!el || !t[key]) return;
+        if (attr) el.setAttribute(attr, t[key]);
+        else el.textContent = t[key];
+      };
+      set('#proof .tag', 'tagWhy');
+      set('#proof h2', 'h2Why');
+      const proofCards = document.querySelectorAll('#proof .card');
+      if (proofCards[0]) { proofCards[0].querySelector('h3').textContent = t.h3Real; proofCards[0].querySelector('p').textContent = t.pReal; }
+      if (proofCards[1]) { proofCards[1].querySelector('h3').textContent = t.h3Strategy; proofCards[1].querySelector('p').textContent = t.pStrategy; }
+      set('#services .tag', 'tagServices');
+      set('#services h2', 'h2Services');
+      const svcCards = document.querySelectorAll('#services .card');
+      if (svcCards[0]) { svcCards[0].querySelector('h3').textContent = t.h3Mvp; svcCards[0].querySelector('p').textContent = t.pMvp; }
+      if (svcCards[1]) { svcCards[1].querySelector('h3').textContent = t.h3Marketing; svcCards[1].querySelector('p').textContent = t.pMarketing; }
+      if (svcCards[2]) { svcCards[2].querySelector('h3').textContent = t.h3Auto; svcCards[2].querySelector('p').textContent = t.pAuto; }
+      set('#products .tag', 'tagBuilt');
+      set('#products h2', 'h2Built');
+      const prodCards = document.querySelectorAll('#products .card');
+      if (prodCards[0]) { prodCards[0].querySelector('h3').textContent = t.h3Postmio; prodCards[0].querySelectorAll('p')[0].textContent = t.pPostmio; }
+      if (prodCards[1]) { prodCards[1].querySelector('h3').textContent = t.h3DrThorne; prodCards[1].querySelectorAll('p')[0].textContent = t.pDrThorne; }
+      if (prodCards[2]) { prodCards[2].querySelector('h3').textContent = t.h3Book; prodCards[2].querySelectorAll('p')[0].textContent = t.pBook; const a = prodCards[2].querySelector('a'); if (a) a.textContent = t.aBook; }
+      set('#founder .tag', 'tagFounder');
+      set('#founder > h2', 'h2Founder');
+      set('#founder > p.sub', 'pFounder');
+      const fCards = document.querySelectorAll('#founder .card');
+      if (fCards[0]) { fCards[0].querySelector('h3').textContent = t.h3PostmioF; fCards[0].querySelector('p').textContent = t.pPostmioF; }
+      if (fCards[1]) { fCards[1].querySelector('h3').textContent = t.h3DrThorneF; fCards[1].querySelector('p').innerHTML = t.pDrThorneF + ' <strong style="color:var(--accent2)">3 days</strong>.'; }
+      if (fCards[2]) { fCards[2].querySelector('h3').textContent = t.h3Pipeline; fCards[2].querySelector('p').textContent = t.pPipeline; }
+      set('#contact .tag', 'tagContact');
+      set('#contact h2', 'h2Contact');
+      set('#contact p.sub', 'pContact');
+      const footer = document.querySelector('footer');
+      if (footer) footer.innerHTML = t.footer + ' · <a href="mailto:support@senzon.eu">support@senzon.eu</a>';
+    }
   </script>
 </body>
 </html>
