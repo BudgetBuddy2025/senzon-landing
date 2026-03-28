@@ -10,146 +10,44 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://senzon.eu/pricing" />
   <style>
-    :root {
-      --bg: #050509;
-      --accent: #7b5cff;
-      --accent2: #3fd5ff;
-      --text: #f5f5f5;
-      --muted: #a0a0b5;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #151528 0, #050509 55%);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    a { color: var(--accent2); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .page {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 48px 16px 80px;
-      position: relative;
-      z-index: 1;
-    }
-    h1, h2, h3 { font-weight: 650; letter-spacing: 0.03em; }
-    h1 { font-size: 2.1rem; margin-bottom: 8px; text-align: center; }
-    h2 { font-size: 1.4rem; margin-bottom: 12px; }
-    h3 { font-size: 1.05rem; margin-bottom: 6px; }
-    .center { text-align: center; }
-    .sub {
-      color: var(--muted);
-      max-width: 640px;
-      margin: 0.5rem auto 1.5rem;
-      text-align: center;
-    }
-    .tag {
-      display: inline-block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent2);
-      margin-bottom: 6px;
-    }
-    section { margin-bottom: 56px; }
-    .card {
-      border-radius: 14px;
-      padding: 24px 22px;
-      background: radial-gradient(circle at top left, #1a1630 0, #0a0a14 55%);
-      border: 1px solid rgba(255,255,255,0.06);
-      margin-bottom: 20px;
-    }
-    .card-accent { border-color: rgba(123,92,255,0.3); }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-      margin-top: 16px;
-    }
-    thead tr { border-bottom: 1px solid rgba(255,255,255,0.1); }
-    tbody tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
-    tbody tr:last-child { border-bottom: none; }
-    th {
-      text-align: left;
-      padding: 8px 6px;
-      color: var(--accent2);
-      font-weight: 600;
-    }
-    th.right, td.right { text-align: right; }
-    td { padding: 12px 6px; color: var(--muted); vertical-align: top; }
-    td.label { color: var(--text); font-weight: 600; white-space: nowrap; }
-    td.price { color: var(--text); text-align: right; white-space: nowrap; }
-    td.price-accent { color: var(--accent2); font-weight: 700; text-align: right; white-space: nowrap; }
-    .service-label {
-      font-size: 0.8rem;
-      font-style: italic;
-      color: var(--muted);
-      margin-bottom: 16px;
-      display: block;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 24px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.95rem;
-      cursor: pointer;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #050509;
-      font-weight: 600;
-      box-shadow: 0 0 18px rgba(0,0,0,0.6);
-      margin-top: 8px;
-    }
-    .btn.secondary {
-      background: transparent;
-      color: var(--text);
-      border-color: rgba(255,255,255,0.18);
-    }
-    .btn:hover { filter: brightness(1.05); transform: translateY(-1px); text-decoration: none; }
-    .back-link {
-      display: inline-block;
-      margin-bottom: 40px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-    .back-link:hover { color: var(--text); }
-    .bg-orb {
-      position: fixed;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 800px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(123,92,255,0.08) 0%, transparent 70%);
-      animation: orbPulse 8s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-    @keyframes orbPulse {
-      0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
-      50% { transform: translateX(-50%) scale(1.15); opacity: 1; }
-    }
-    #particles-canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    footer {
-      margin-top: 32px;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-    @media (max-width: 600px) {
-      td, th { padding: 6px 3px; font-size: 0.78rem; }
-      td.label { white-space: normal; }
-      td.price, td.price-accent { white-space: normal; }
-    }
+    :root { --bg:#050509; --accent:#7b5cff; --accent2:#3fd5ff; --text:#f5f5f5; --muted:#a0a0b5; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:radial-gradient(circle at top,#151528 0,#050509 55%); color:var(--text); line-height:1.6; overflow-x:hidden; }
+    a { color:var(--accent2); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .page { max-width:960px; margin:0 auto; padding:48px 16px 80px; position:relative; z-index:1; }
+    h1,h2,h3 { font-weight:650; letter-spacing:0.03em; }
+    h1 { font-size:2.1rem; margin-bottom:8px; text-align:center; }
+    h2 { font-size:1.4rem; margin-bottom:12px; }
+    h3 { font-size:1.05rem; margin-bottom:6px; }
+    .center { text-align:center; }
+    .sub { color:var(--muted); max-width:640px; margin:0.5rem auto 1.5rem; text-align:center; }
+    .tag { display:inline-block; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent2); margin-bottom:6px; }
+    section { margin-bottom:56px; }
+    .card { border-radius:14px; padding:24px 22px; background:radial-gradient(circle at top left,#1a1630 0,#0a0a14 55%); border:1px solid rgba(255,255,255,0.06); margin-bottom:20px; }
+    .card-accent { border-color:rgba(123,92,255,0.3); }
+    table { width:100%; border-collapse:collapse; font-size:0.9rem; margin-top:16px; }
+    thead tr { border-bottom:1px solid rgba(255,255,255,0.1); }
+    tbody tr { border-bottom:1px solid rgba(255,255,255,0.05); }
+    tbody tr:last-child { border-bottom:none; }
+    th { text-align:left; padding:8px 6px; color:var(--accent2); font-weight:600; }
+    th.right,td.right { text-align:right; }
+    td { padding:12px 6px; color:var(--muted); vertical-align:top; }
+    td.label { color:var(--text); font-weight:600; white-space:nowrap; }
+    td.price { color:var(--text); text-align:right; white-space:nowrap; }
+    td.price-accent { color:var(--accent2); font-weight:700; text-align:right; white-space:nowrap; }
+    .service-label { font-size:0.8rem; font-style:italic; color:var(--muted); margin-bottom:16px; display:block; }
+    .btn { display:inline-block; padding:10px 24px; border-radius:999px; border:1px solid transparent; font-size:0.95rem; cursor:pointer; background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#050509; font-weight:600; box-shadow:0 0 18px rgba(0,0,0,0.6); margin-top:8px; }
+    .btn.secondary { background:transparent; color:var(--text); border-color:rgba(255,255,255,0.18); }
+    .btn:hover { filter:brightness(1.05); transform:translateY(-1px); text-decoration:none; }
+    .back-link { display:inline-block; margin-bottom:40px; color:var(--muted); font-size:0.9rem; }
+    .back-link:hover { color:var(--text); }
+    .bg-orb { position:fixed; top:-200px; left:50%; transform:translateX(-50%); width:800px; height:800px; border-radius:50%; background:radial-gradient(circle,rgba(123,92,255,0.08) 0%,transparent 70%); animation:orbPulse 8s ease-in-out infinite; pointer-events:none; z-index:0; }
+    @keyframes orbPulse { 0%,100%{transform:translateX(-50%) scale(1);opacity:0.6} 50%{transform:translateX(-50%) scale(1.15);opacity:1} }
+    #particles-canvas { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+    footer { margin-top:32px; text-align:center; font-size:0.8rem; color:var(--muted); }
+    @media (max-width:600px) { td,th{padding:6px 3px;font-size:0.78rem} td.label,td.price,td.price-accent{white-space:normal} }
+    @media (max-width:480px) { h1{font-size:1.6rem} }
   </style>
 </head>
 <body>
@@ -157,42 +55,42 @@
   <canvas id="particles-canvas"></canvas>
   <div class="page">
 
-    <a href="/" class="back-link">← Back to SenZon™</a>
+    <a href="/" class="back-link" data-i18n="backLink">← Back to SenZon™</a>
 
     <div class="center" style="margin-bottom:48px;">
-      <span class="tag">Pricing & Services</span>
-      <h1>Transparent. Tiered. No surprises.</h1>
-      <p class="sub">Pick the service that fits where you are. Every tier is scoped, priced, and ready to move.</p>
+      <span class="tag" data-i18n="tagPricing">Pricing & Services</span>
+      <h1 data-i18n="h1Pricing">Transparent. Tiered. No surprises.</h1>
+      <p class="sub" data-i18n="pPricing">Pick the service that fits where you are. Every tier is scoped, priced, and ready to move.</p>
     </div>
 
     <!-- SERVICE 1 -->
     <section id="product-build">
       <div class="card">
-        <span class="tag">Service 01</span>
-        <h2>🛠 AI Product Build</h2>
-        <span class="service-label">"From idea to live product in 14 days" — for non-technical founders who are done waiting.</span>
+        <span class="tag" data-i18n="tagS1">Service 01</span>
+        <h2 data-i18n="h2S1">🛠 AI Product Build</h2>
+        <span class="service-label" data-i18n="labelS1">"From idea to live product in 14 days" — for non-technical founders who are done waiting.</span>
         <table>
           <thead>
             <tr>
-              <th>Tier</th>
-              <th>What You Get</th>
-              <th class="right">Price</th>
+              <th data-i18n="thTier">Tier</th>
+              <th data-i18n="thWhat">What You Get</th>
+              <th class="right" data-i18n="thPrice">Price</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="label">Starter</td>
-              <td>Landing page + core feature + deployment</td>
+              <td class="label" data-i18n="s1Starter">Starter</td>
+              <td data-i18n="s1StarterDesc">Landing page + core feature + deployment</td>
               <td class="price">€1,500</td>
             </tr>
             <tr>
-              <td class="label">Full Build</td>
-              <td>Complete MVP, payments, auth, custom domain</td>
+              <td class="label" data-i18n="s1Full">Full Build</td>
+              <td data-i18n="s1FullDesc">Complete MVP, payments, auth, custom domain</td>
               <td class="price">€3,500</td>
             </tr>
             <tr>
-              <td class="label">Premium</td>
-              <td>Full product + marketing funnel + automations</td>
+              <td class="label" data-i18n="s1Premium">Premium</td>
+              <td data-i18n="s1PremiumDesc">Full product + marketing funnel + automations</td>
               <td class="price-accent">€6,000</td>
             </tr>
           </tbody>
@@ -203,31 +101,31 @@
     <!-- SERVICE 2 -->
     <section id="digital-presence">
       <div class="card">
-        <span class="tag">Service 02</span>
-        <h2>🌐 Digital Presence</h2>
-        <span class="service-label">"Your business, fully alive online" — for local businesses and SMEs who are invisible, or look like it.</span>
+        <span class="tag" data-i18n="tagS2">Service 02</span>
+        <h2 data-i18n="h2S2">🌐 Digital Presence</h2>
+        <span class="service-label" data-i18n="labelS2">"Your business, fully alive online" — for local businesses and SMEs who are invisible, or look like it.</span>
         <table>
           <thead>
             <tr>
-              <th>Tier</th>
-              <th>What You Get</th>
-              <th class="right">Price</th>
+              <th data-i18n="thTier">Tier</th>
+              <th data-i18n="thWhat">What You Get</th>
+              <th class="right" data-i18n="thPrice">Price</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="label">Essential</td>
-              <td>Logo + website + social setup</td>
+              <td class="label" data-i18n="s2Essential">Essential</td>
+              <td data-i18n="s2EssentialDesc">Logo + website + social setup</td>
               <td class="price">€800</td>
             </tr>
             <tr>
-              <td class="label">Full Presence</td>
-              <td>Brand + website + PWA + SEO + content system</td>
+              <td class="label" data-i18n="s2Full">Full Presence</td>
+              <td data-i18n="s2FullDesc">Brand + website + PWA + SEO + content system</td>
               <td class="price">€2,000</td>
             </tr>
             <tr>
-              <td class="label">Done & Running</td>
-              <td>Everything above + 30 days managed content</td>
+              <td class="label" data-i18n="s2Running">Done & Running</td>
+              <td data-i18n="s2RunningDesc">Everything above + 30 days managed content</td>
               <td class="price-accent">€3,200</td>
             </tr>
           </tbody>
@@ -238,31 +136,31 @@
     <!-- SERVICE 3 -->
     <section id="ai-strategy">
       <div class="card">
-        <span class="tag">Service 03</span>
-        <h2>🧠 AI Systems & Strategy</h2>
-        <span class="service-label">"The brain behind your operation" — for operators who want to work smarter, not hire more.</span>
+        <span class="tag" data-i18n="tagS3">Service 03</span>
+        <h2 data-i18n="h2S3">🧠 AI Systems & Strategy</h2>
+        <span class="service-label" data-i18n="labelS3">"The brain behind your operation" — for operators who want to work smarter, not hire more.</span>
         <table>
           <thead>
             <tr>
-              <th>Tier</th>
-              <th>What You Get</th>
-              <th class="right">Price</th>
+              <th data-i18n="thTier">Tier</th>
+              <th data-i18n="thWhat">What You Get</th>
+              <th class="right" data-i18n="thPrice">Price</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="label">Clarity Session</td>
-              <td>90-min strategy call + written action plan</td>
+              <td class="label" data-i18n="s3Clarity">Clarity Session</td>
+              <td data-i18n="s3ClarityDesc">90-min strategy call + written action plan</td>
               <td class="price">€250</td>
             </tr>
             <tr>
-              <td class="label">AI Operator Kit</td>
-              <td>Master doc + prompt library + workflow map</td>
+              <td class="label" data-i18n="s3Kit">AI Operator Kit</td>
+              <td data-i18n="s3KitDesc">Master doc + prompt library + workflow map</td>
               <td class="price">€500</td>
             </tr>
             <tr>
-              <td class="label">Full System</td>
-              <td>Complete AI operating system for your business</td>
+              <td class="label" data-i18n="s3Full">Full System</td>
+              <td data-i18n="s3FullDesc">Complete AI operating system for your business</td>
               <td class="price-accent">€1,200</td>
             </tr>
           </tbody>
@@ -272,47 +170,47 @@
 
     <!-- ADD-ONS -->
     <section id="addons">
-      <span class="tag">Add-Ons</span>
-      <h2>Bolt-on what you need</h2>
-      <p style="color:var(--muted); margin-bottom:20px; font-size:0.9rem;">Available with any service tier. Mix and match to fit your project.</p>
+      <span class="tag" data-i18n="tagAddons">Add-Ons</span>
+      <h2 data-i18n="h2Addons">Bolt-on what you need</h2>
+      <p style="color:var(--muted);margin-bottom:20px;font-size:0.9rem;" data-i18n="pAddons">Available with any service tier. Mix and match to fit your project.</p>
       <div class="card card-accent">
         <table>
           <thead>
             <tr>
-              <th>Add-On</th>
-              <th>What It Covers</th>
-              <th class="right">Price</th>
+              <th data-i18n="thAddon">Add-On</th>
+              <th data-i18n="thCovers">What It Covers</th>
+              <th class="right" data-i18n="thPrice">Price</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="label">Domain Acquisition & Setup</td>
-              <td>Research, purchase, DNS config, and professional email. Ready from day one.</td>
+              <td class="label" data-i18n="a1">Domain Acquisition & Setup</td>
+              <td data-i18n="a1Desc">Research, purchase, DNS config, and professional email. Ready from day one.</td>
               <td class="price">€150</td>
             </tr>
             <tr>
-              <td class="label">Social Media Management</td>
-              <td>Monthly content creation and posting across your platforms.</td>
+              <td class="label" data-i18n="a2">Social Media Management</td>
+              <td data-i18n="a2Desc">Monthly content creation and posting across your platforms.</td>
               <td class="price">€400/mo</td>
             </tr>
             <tr>
-              <td class="label">Monetisation Audit</td>
-              <td>Review of your existing product or platform — untapped revenue streams identified with a clear action plan.</td>
+              <td class="label" data-i18n="a3">Monetisation Audit</td>
+              <td data-i18n="a3Desc">Review of your existing product or platform — untapped revenue streams identified with a clear action plan.</td>
               <td class="price">€350</td>
             </tr>
             <tr>
-              <td class="label">Growth Strategy Session</td>
-              <td>Identify your next revenue lever and build the 90-day plan to hit it.</td>
+              <td class="label" data-i18n="a4">Growth Strategy Session</td>
+              <td data-i18n="a4Desc">Identify your next revenue lever and build the 90-day plan to hit it.</td>
               <td class="price">€250</td>
             </tr>
             <tr>
-              <td class="label">Email Marketing Setup</td>
-              <td>Sequence architecture, copywriting, and full technical setup. Built to convert.</td>
+              <td class="label" data-i18n="a5">Email Marketing Setup</td>
+              <td data-i18n="a5Desc">Sequence architecture, copywriting, and full technical setup. Built to convert.</td>
               <td class="price">€600</td>
             </tr>
             <tr>
-              <td class="label">Competitor & Market Research</td>
-              <td>Structured analysis of your market, competitors, and positioning gaps — delivered as a written report.</td>
+              <td class="label" data-i18n="a6">Competitor & Market Research</td>
+              <td data-i18n="a6Desc">Structured analysis of your market, competitors, and positioning gaps — delivered as a written report.</td>
               <td class="price">€400</td>
             </tr>
           </tbody>
@@ -322,22 +220,23 @@
 
     <!-- CTA -->
     <section id="contact" class="center">
-      <span class="tag">Ready?</span>
-      <h2>Not sure which tier fits?</h2>
-      <p class="sub">Book a free 20-minute call. We'll scope it together and you'll leave with a clear answer — no pitch, no pressure.</p>
-      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
-        <a href="mailto:support@senzon.eu?subject=Discovery Call Request" class="btn">Book a Free 20-Min Call →</a>
-        <a href="mailto:support@senzon.eu?subject=Pricing Enquiry" class="btn secondary">Ask a Question →</a>
+      <span class="tag" data-i18n="tagReady">Ready?</span>
+      <h2 data-i18n="h2Ready">Not sure which tier fits?</h2>
+      <p class="sub" data-i18n="pReady">Book a free 20-minute call. We'll scope it together and you'll leave with a clear answer — no pitch, no pressure.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;">
+        <a href="mailto:support@senzon.eu?subject=Discovery Call Request" class="btn" data-i18n="btnBook">Book a Free 20-Min Call →</a>
+        <a href="mailto:support@senzon.eu?subject=Pricing Enquiry" class="btn secondary" data-i18n="btnAsk">Ask a Question →</a>
       </div>
-      <p style="margin-top:16px; color:var(--muted); font-size:0.85rem;">support@senzon.eu</p>
+      <p style="margin-top:16px;color:var(--muted);font-size:0.85rem;">support@senzon.eu</p>
     </section>
 
-    <footer>
+    <footer data-i18n-footer>
       SenZon™ · AI Operator for Hire · <a href="mailto:support@senzon.eu">support@senzon.eu</a> · Built with unreasonable speed (the good kind).
     </footer>
   </div>
 
   <script>
+    // ── Particles ──
     const canvas = document.getElementById('particles-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -345,30 +244,273 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     function createParticle() {
-      return {
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.5 + 0.3,
-        dx: (Math.random() - 0.5) * 0.3,
-        dy: -Math.random() * 0.4 - 0.1,
-        opacity: Math.random() * 0.5 + 0.1,
-        color: Math.random() > 0.5 ? '123,92,255' : '63,213,255'
-      };
+      return { x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*1.5+0.3, dx:(Math.random()-0.5)*0.3, dy:-Math.random()*0.4-0.1, opacity:Math.random()*0.5+0.1, color:Math.random()>0.5?'123,92,255':'63,213,255' };
     }
     for (let i = 0; i < 90; i++) particles.push(createParticle());
     function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p, i) => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${p.color},${p.opacity})`;
-        ctx.fill();
-        p.x += p.dx; p.y += p.dy;
-        if (p.y < -5) particles[i] = createParticle();
-      });
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particles.forEach((p,i)=>{ ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=`rgba(${p.color},${p.opacity})`; ctx.fill(); p.x+=p.dx; p.y+=p.dy; if(p.y<-5) particles[i]=createParticle(); });
       requestAnimationFrame(animateParticles);
     }
     animateParticles();
+
+    // ── i18n ──
+    function getLang() {
+      const b = (navigator.language || navigator.userLanguage || 'en').toLowerCase().slice(0,2);
+      return translations[b] ? b : 'en';
+    }
+
+    const translations = {
+      en: {
+        backLink: "← Back to SenZon™",
+        tagPricing: "Pricing & Services",
+        h1Pricing: "Transparent. Tiered. No surprises.",
+        pPricing: "Pick the service that fits where you are. Every tier is scoped, priced, and ready to move.",
+        tagS1: "Service 01", h2S1: "🛠 AI Product Build",
+        labelS1: '"From idea to live product in 14 days" — for non-technical founders who are done waiting.',
+        thTier: "Tier", thWhat: "What You Get", thPrice: "Price", thAddon: "Add-On", thCovers: "What It Covers",
+        s1Starter: "Starter", s1StarterDesc: "Landing page + core feature + deployment",
+        s1Full: "Full Build", s1FullDesc: "Complete MVP, payments, auth, custom domain",
+        s1Premium: "Premium", s1PremiumDesc: "Full product + marketing funnel + automations",
+        tagS2: "Service 02", h2S2: "🌐 Digital Presence",
+        labelS2: '"Your business, fully alive online" — for local businesses and SMEs who are invisible, or look like it.',
+        s2Essential: "Essential", s2EssentialDesc: "Logo + website + social setup",
+        s2Full: "Full Presence", s2FullDesc: "Brand + website + PWA + SEO + content system",
+        s2Running: "Done & Running", s2RunningDesc: "Everything above + 30 days managed content",
+        tagS3: "Service 03", h2S3: "🧠 AI Systems & Strategy",
+        labelS3: '"The brain behind your operation" — for operators who want to work smarter, not hire more.',
+        s3Clarity: "Clarity Session", s3ClarityDesc: "90-min strategy call + written action plan",
+        s3Kit: "AI Operator Kit", s3KitDesc: "Master doc + prompt library + workflow map",
+        s3Full: "Full System", s3FullDesc: "Complete AI operating system for your business",
+        tagAddons: "Add-Ons", h2Addons: "Bolt-on what you need",
+        pAddons: "Available with any service tier. Mix and match to fit your project.",
+        a1: "Domain Acquisition & Setup", a1Desc: "Research, purchase, DNS config, and professional email. Ready from day one.",
+        a2: "Social Media Management", a2Desc: "Monthly content creation and posting across your platforms.",
+        a3: "Monetisation Audit", a3Desc: "Review of your existing product or platform — untapped revenue streams identified with a clear action plan.",
+        a4: "Growth Strategy Session", a4Desc: "Identify your next revenue lever and build the 90-day plan to hit it.",
+        a5: "Email Marketing Setup", a5Desc: "Sequence architecture, copywriting, and full technical setup. Built to convert.",
+        a6: "Competitor & Market Research", a6Desc: "Structured analysis of your market, competitors, and positioning gaps — delivered as a written report.",
+        tagReady: "Ready?", h2Ready: "Not sure which tier fits?",
+        pReady: "Book a free 20-minute call. We'll scope it together and you'll leave with a clear answer — no pitch, no pressure.",
+        btnBook: "Book a Free 20-Min Call →", btnAsk: "Ask a Question →",
+        footer: "SenZon™ · AI Operator for Hire · Built with unreasonable speed (the good kind)."
+      },
+      it: {
+        backLink: "← Torna a SenZon™",
+        tagPricing: "Prezzi & Servizi",
+        h1Pricing: "Trasparente. A livelli. Nessuna sorpresa.",
+        pPricing: "Scegli il servizio adatto alla tua situazione. Ogni livello è strutturato, prezzato e pronto a partire.",
+        tagS1: "Servizio 01", h2S1: "🛠 AI Product Build",
+        labelS1: '"Dall\'idea al prodotto live in 14 giorni" — per founder non tecnici che ne hanno abbastanza di aspettare.',
+        thTier: "Livello", thWhat: "Cosa Ottieni", thPrice: "Prezzo", thAddon: "Add-On", thCovers: "Cosa Comprende",
+        s1Starter: "Starter", s1StarterDesc: "Landing page + funzione principale + deployment",
+        s1Full: "Full Build", s1FullDesc: "MVP completo, pagamenti, autenticazione, dominio personalizzato",
+        s1Premium: "Premium", s1PremiumDesc: "Prodotto completo + funnel di marketing + automazioni",
+        tagS2: "Servizio 02", h2S2: "🌐 Presenza Digitale",
+        labelS2: '"La tua azienda, completamente viva online" — per imprese locali e PMI invisibili, o che lo sembrano.',
+        s2Essential: "Essenziale", s2EssentialDesc: "Logo + sito web + configurazione social",
+        s2Full: "Presenza Completa", s2FullDesc: "Brand + sito + PWA + SEO + sistema di contenuti",
+        s2Running: "Operativo", s2RunningDesc: "Tutto sopra + 30 giorni di contenuti gestiti",
+        tagS3: "Servizio 03", h2S3: "🧠 Sistemi AI & Strategia",
+        labelS3: '"Il cervello dietro la tua operazione" — per chi vuole lavorare in modo più intelligente, non assumere di più.',
+        s3Clarity: "Sessione Chiarezza", s3ClarityDesc: "Call strategica da 90 min + piano d'azione scritto",
+        s3Kit: "AI Operator Kit", s3KitDesc: "Master doc + libreria prompt + mappa workflow",
+        s3Full: "Sistema Completo", s3FullDesc: "Sistema operativo AI completo per la tua azienda",
+        tagAddons: "Add-On", h2Addons: "Aggiungi quello che ti serve",
+        pAddons: "Disponibile con qualsiasi livello di servizio. Combinali a piacere.",
+        a1: "Acquisizione & Configurazione Dominio", a1Desc: "Ricerca, acquisto, configurazione DNS ed email professionale. Pronto dal primo giorno.",
+        a2: "Gestione Social Media", a2Desc: "Creazione e pubblicazione mensile di contenuti sulle tue piattaforme.",
+        a3: "Audit Monetizzazione", a3Desc: "Analisi del tuo prodotto o piattaforma — flussi di entrate non sfruttati identificati con un piano d'azione chiaro.",
+        a4: "Sessione Strategia di Crescita", a4Desc: "Identifica la tua prossima leva di entrate e costruisci il piano a 90 giorni per raggiungerla.",
+        a5: "Configurazione Email Marketing", a5Desc: "Architettura delle sequenze, copywriting e configurazione tecnica completa. Costruito per convertire.",
+        a6: "Ricerca Competitor & Mercato", a6Desc: "Analisi strutturata del tuo mercato, concorrenti e gap di posizionamento — consegnata come report scritto.",
+        tagReady: "Pronto?", h2Ready: "Non sai quale livello fa per te?",
+        pReady: "Prenota una call gratuita di 20 minuti. Lo definiamo insieme e uscirai con una risposta chiara — nessun pitch, nessuna pressione.",
+        btnBook: "Prenota una Call Gratuita di 20 Min →", btnAsk: "Fai una Domanda →",
+        footer: "SenZon™ · Operatore AI · Costruito con velocità irragionevole (nel senso buono)."
+      },
+      es: {
+        backLink: "← Volver a SenZon™",
+        tagPricing: "Precios & Servicios",
+        h1Pricing: "Transparente. Por niveles. Sin sorpresas.",
+        pPricing: "Elige el servicio que encaja con tu situación. Cada nivel está definido, con precio y listo para arrancar.",
+        tagS1: "Servicio 01", h2S1: "🛠 AI Product Build",
+        labelS1: '"De idea a producto en vivo en 14 días" — para founders no técnicos que ya están hartos de esperar.',
+        thTier: "Nivel", thWhat: "Qué Obtienes", thPrice: "Precio", thAddon: "Complemento", thCovers: "Qué Incluye",
+        s1Starter: "Inicial", s1StarterDesc: "Landing page + función principal + despliegue",
+        s1Full: "Construcción Completa", s1FullDesc: "MVP completo, pagos, autenticación, dominio personalizado",
+        s1Premium: "Premium", s1PremiumDesc: "Producto completo + embudo de marketing + automatizaciones",
+        tagS2: "Servicio 02", h2S2: "🌐 Presencia Digital",
+        labelS2: '"Tu negocio, completamente vivo online" — para negocios locales y PYMEs invisibles, o que lo parecen.',
+        s2Essential: "Esencial", s2EssentialDesc: "Logo + sitio web + configuración de redes sociales",
+        s2Full: "Presencia Completa", s2FullDesc: "Marca + web + PWA + SEO + sistema de contenidos",
+        s2Running: "En Marcha", s2RunningDesc: "Todo lo anterior + 30 días de contenido gestionado",
+        tagS3: "Servicio 03", h2S3: "🧠 Sistemas IA & Estrategia",
+        labelS3: '"El cerebro detrás de tu operación" — para quienes quieren trabajar de forma más inteligente, no contratar más.',
+        s3Clarity: "Sesión Claridad", s3ClarityDesc: "Llamada estratégica de 90 min + plan de acción escrito",
+        s3Kit: "AI Operator Kit", s3KitDesc: "Doc maestro + biblioteca de prompts + mapa de workflow",
+        s3Full: "Sistema Completo", s3FullDesc: "Sistema operativo IA completo para tu negocio",
+        tagAddons: "Complementos", h2Addons: "Añade lo que necesitas",
+        pAddons: "Disponible con cualquier nivel de servicio. Combínalos a tu gusto.",
+        a1: "Adquisición & Configuración de Dominio", a1Desc: "Investigación, compra, configuración DNS y email profesional. Listo desde el primer día.",
+        a2: "Gestión de Redes Sociales", a2Desc: "Creación y publicación mensual de contenido en tus plataformas.",
+        a3: "Auditoría de Monetización", a3Desc: "Revisión de tu producto o plataforma — flujos de ingresos no aprovechados identificados con un plan de acción claro.",
+        a4: "Sesión de Estrategia de Crecimiento", a4Desc: "Identifica tu próxima palanca de ingresos y construye el plan a 90 días para lograrlo.",
+        a5: "Configuración de Email Marketing", a5Desc: "Arquitectura de secuencias, copywriting y configuración técnica completa. Diseñado para convertir.",
+        a6: "Investigación de Competidores & Mercado", a6Desc: "Análisis estructurado de tu mercado, competidores y brechas de posicionamiento — entregado como informe escrito.",
+        tagReady: "¿Listo?", h2Ready: "¿No sabes qué nivel te conviene?",
+        pReady: "Reserva una llamada gratuita de 20 minutos. Lo definimos juntos y saldrás con una respuesta clara — sin pitch, sin presión.",
+        btnBook: "Reserva una Llamada Gratuita de 20 Min →", btnAsk: "Haz una Pregunta →",
+        footer: "SenZon™ · Operador IA · Construido con velocidad irrazonable (del bueno)."
+      },
+      fr: {
+        backLink: "← Retour à SenZon™",
+        tagPricing: "Tarifs & Services",
+        h1Pricing: "Transparent. Par niveaux. Sans surprises.",
+        pPricing: "Choisissez le service adapté à votre situation. Chaque niveau est cadré, tarifé et prêt à démarrer.",
+        tagS1: "Service 01", h2S1: "🛠 AI Product Build",
+        labelS1: '"De l\'idée au produit en ligne en 14 jours" — pour les fondateurs non techniques qui en ont assez d\'attendre.',
+        thTier: "Niveau", thWhat: "Ce que Vous Obtenez", thPrice: "Prix", thAddon: "Option", thCovers: "Ce que ça Comprend",
+        s1Starter: "Starter", s1StarterDesc: "Landing page + fonctionnalité principale + déploiement",
+        s1Full: "Construction Complète", s1FullDesc: "MVP complet, paiements, authentification, domaine personnalisé",
+        s1Premium: "Premium", s1PremiumDesc: "Produit complet + tunnel marketing + automatisations",
+        tagS2: "Service 02", h2S2: "🌐 Présence Digitale",
+        labelS2: '"Votre business, pleinement vivant en ligne" — pour les entreprises locales et PME invisibles, ou qui le semblent.',
+        s2Essential: "Essentiel", s2EssentialDesc: "Logo + site web + configuration réseaux sociaux",
+        s2Full: "Présence Complète", s2FullDesc: "Marque + site + PWA + SEO + système de contenu",
+        s2Running: "Opérationnel", s2RunningDesc: "Tout ce qui précède + 30 jours de contenu géré",
+        tagS3: "Service 03", h2S3: "🧠 Systèmes IA & Stratégie",
+        labelS3: '"Le cerveau derrière votre opération" — pour ceux qui veulent travailler plus intelligemment, pas embaucher plus.',
+        s3Clarity: "Session Clarté", s3ClarityDesc: "Appel stratégique de 90 min + plan d'action écrit",
+        s3Kit: "AI Operator Kit", s3KitDesc: "Doc maître + bibliothèque de prompts + carte de workflow",
+        s3Full: "Système Complet", s3FullDesc: "Système d'exploitation IA complet pour votre entreprise",
+        tagAddons: "Options", h2Addons: "Ajoutez ce dont vous avez besoin",
+        pAddons: "Disponible avec n'importe quel niveau de service. Combinez à votre guise.",
+        a1: "Acquisition & Configuration de Domaine", a1Desc: "Recherche, achat, configuration DNS et email professionnel. Prêt dès le premier jour.",
+        a2: "Gestion des Réseaux Sociaux", a2Desc: "Création et publication mensuelle de contenu sur vos plateformes.",
+        a3: "Audit de Monétisation", a3Desc: "Revue de votre produit ou plateforme — flux de revenus inexploités identifiés avec un plan d'action clair.",
+        a4: "Session Stratégie de Croissance", a4Desc: "Identifiez votre prochain levier de revenus et construisez le plan à 90 jours pour l'atteindre.",
+        a5: "Configuration Email Marketing", a5Desc: "Architecture de séquences, copywriting et configuration technique complète. Conçu pour convertir.",
+        a6: "Recherche Concurrents & Marché", a6Desc: "Analyse structurée de votre marché, concurrents et lacunes de positionnement — livrée sous forme de rapport écrit.",
+        tagReady: "Prêt ?", h2Ready: "Vous ne savez pas quel niveau vous convient ?",
+        pReady: "Réservez un appel gratuit de 20 minutes. On cadre ça ensemble et vous repartirez avec une réponse claire — pas de pitch, pas de pression.",
+        btnBook: "Réserver un Appel Gratuit de 20 Min →", btnAsk: "Poser une Question →",
+        footer: "SenZon™ · Opérateur IA · Construit à une vitesse déraisonnable (dans le bon sens)."
+      },
+      de: {
+        backLink: "← Zurück zu SenZon™",
+        tagPricing: "Preise & Leistungen",
+        h1Pricing: "Transparent. Gestuft. Keine Überraschungen.",
+        pPricing: "Wähle den Service, der zu deiner Situation passt. Jede Stufe ist strukturiert, bepreist und startklar.",
+        tagS1: "Leistung 01", h2S1: "🛠 AI Product Build",
+        labelS1: '"Von der Idee zum Live-Produkt in 14 Tagen" — für nicht-technische Gründer, die genug vom Warten haben.',
+        thTier: "Stufe", thWhat: "Was Du Bekommst", thPrice: "Preis", thAddon: "Zusatz", thCovers: "Was Es Umfasst",
+        s1Starter: "Starter", s1StarterDesc: "Landing page + Kernfunktion + Deployment",
+        s1Full: "Vollständiger Build", s1FullDesc: "Komplettes MVP, Zahlungen, Auth, eigene Domain",
+        s1Premium: "Premium", s1PremiumDesc: "Vollständiges Produkt + Marketing-Funnel + Automatisierungen",
+        tagS2: "Leistung 02", h2S2: "🌐 Digitale Präsenz",
+        labelS2: '"Dein Business, vollständig online am Leben" — für lokale Unternehmen und KMUs, die unsichtbar sind oder so wirken.',
+        s2Essential: "Essentiell", s2EssentialDesc: "Logo + Website + Social-Media-Einrichtung",
+        s2Full: "Vollständige Präsenz", s2FullDesc: "Marke + Website + PWA + SEO + Content-System",
+        s2Running: "Fertig & Laufend", s2RunningDesc: "Alles oben + 30 Tage verwalteter Content",
+        tagS3: "Leistung 03", h2S3: "🧠 KI-Systeme & Strategie",
+        labelS3: '"Das Gehirn hinter deiner Operation" — für alle, die intelligenter arbeiten wollen, statt mehr einzustellen.',
+        s3Clarity: "Klarheits-Session", s3ClarityDesc: "90-min Strategiegespräch + schriftlicher Aktionsplan",
+        s3Kit: "AI Operator Kit", s3KitDesc: "Master-Doc + Prompt-Bibliothek + Workflow-Map",
+        s3Full: "Vollständiges System", s3FullDesc: "Komplettes KI-Betriebssystem für dein Unternehmen",
+        tagAddons: "Zusätze", h2Addons: "Füge hinzu, was du brauchst",
+        pAddons: "Verfügbar mit jeder Service-Stufe. Kombiniere nach Bedarf.",
+        a1: "Domain-Erwerb & Einrichtung", a1Desc: "Recherche, Kauf, DNS-Konfiguration und professionelle E-Mail. Bereit ab Tag eins.",
+        a2: "Social-Media-Verwaltung", a2Desc: "Monatliche Content-Erstellung und -Veröffentlichung auf deinen Plattformen.",
+        a3: "Monetarisierungs-Audit", a3Desc: "Überprüfung deines bestehenden Produkts oder Plattform — ungenutzte Umsatzquellen identifiziert mit klarem Aktionsplan.",
+        a4: "Wachstumsstrategie-Session", a4Desc: "Identifiziere deinen nächsten Umsatzhebel und baue den 90-Tage-Plan, um ihn zu erreichen.",
+        a5: "E-Mail-Marketing-Einrichtung", a5Desc: "Sequenz-Architektur, Copywriting und vollständige technische Einrichtung. Gebaut zum Konvertieren.",
+        a6: "Wettbewerber- & Marktforschung", a6Desc: "Strukturierte Analyse deines Markts, Wettbewerber und Positionierungslücken — als schriftlicher Bericht geliefert.",
+        tagReady: "Bereit?", h2Ready: "Nicht sicher, welche Stufe passt?",
+        pReady: "Buche ein kostenloses 20-Minuten-Gespräch. Wir klären es gemeinsam und du gehst mit einer klaren Antwort — kein Pitch, kein Druck.",
+        btnBook: "Kostenloses 20-Min-Gespräch Buchen →", btnAsk: "Eine Frage Stellen →",
+        footer: "SenZon™ · KI-Operator · Gebaut mit unvernünftiger Geschwindigkeit (die gute Art)."
+      },
+      pt: {
+        backLink: "← Voltar ao SenZon™",
+        tagPricing: "Preços & Serviços",
+        h1Pricing: "Transparente. Por níveis. Sem surpresas.",
+        pPricing: "Escolhe o serviço que encaixa na tua situação. Cada nível está definido, com preço e pronto a arrancar.",
+        tagS1: "Serviço 01", h2S1: "🛠 AI Product Build",
+        labelS1: '"Da ideia ao produto vivo em 14 dias" — para founders não técnicos que já estão fartos de esperar.',
+        thTier: "Nível", thWhat: "O que Recebes", thPrice: "Preço", thAddon: "Extra", thCovers: "O que Inclui",
+        s1Starter: "Starter", s1StarterDesc: "Landing page + funcionalidade principal + deployment",
+        s1Full: "Construção Completa", s1FullDesc: "MVP completo, pagamentos, auth, domínio personalizado",
+        s1Premium: "Premium", s1PremiumDesc: "Produto completo + funil de marketing + automações",
+        tagS2: "Serviço 02", h2S2: "🌐 Presença Digital",
+        labelS2: '"O teu negócio, totalmente vivo online" — para empresas locais e PMEs invisíveis, ou que parecem.',
+        s2Essential: "Essencial", s2EssentialDesc: "Logo + site + configuração de redes sociais",
+        s2Full: "Presença Completa", s2FullDesc: "Marca + site + PWA + SEO + sistema de conteúdo",
+        s2Running: "A Funcionar", s2RunningDesc: "Tudo acima + 30 dias de conteúdo gerido",
+        tagS3: "Serviço 03", h2S3: "🧠 Sistemas de IA & Estratégia",
+        labelS3: '"O cérebro por trás da tua operação" — para quem quer trabalhar de forma mais inteligente, não contratar mais.',
+        s3Clarity: "Sessão Clareza", s3ClarityDesc: "Chamada estratégica de 90 min + plano de ação escrito",
+        s3Kit: "AI Operator Kit", s3KitDesc: "Doc mestre + biblioteca de prompts + mapa de workflow",
+        s3Full: "Sistema Completo", s3FullDesc: "Sistema operativo IA completo para o teu negócio",
+        tagAddons: "Extras", h2Addons: "Adiciona o que precisas",
+        pAddons: "Disponível com qualquer nível de serviço. Combina à tua medida.",
+        a1: "Aquisição & Configuração de Domínio", a1Desc: "Pesquisa, compra, configuração DNS e email profissional. Pronto desde o primeiro dia.",
+        a2: "Gestão de Redes Sociais", a2Desc: "Criação e publicação mensal de conteúdo nas tuas plataformas.",
+        a3: "Auditoria de Monetização", a3Desc: "Revisão do teu produto ou plataforma — fluxos de receita não explorados identificados com um plano de ação claro.",
+        a4: "Sessão de Estratégia de Crescimento", a4Desc: "Identifica a tua próxima alavanca de receita e constrói o plano a 90 dias para a atingir.",
+        a5: "Configuração de Email Marketing", a5Desc: "Arquitetura de sequências, copywriting e configuração técnica completa. Construído para converter.",
+        a6: "Pesquisa de Concorrentes & Mercado", a6Desc: "Análise estruturada do teu mercado, concorrentes e lacunas de posicionamento — entregue como relatório escrito.",
+        tagReady: "Pronto?", h2Ready: "Não sabes qual nível é o certo?",
+        pReady: "Agenda uma call gratuita de 20 minutos. Definimos juntos e sairás com uma resposta clara — sem pitch, sem pressão.",
+        btnBook: "Agendar Call Gratuita de 20 Min →", btnAsk: "Fazer uma Pergunta →",
+        footer: "SenZon™ · Operador IA · Construído com velocidade absurda (do jeito bom)."
+      },
+      pl: {
+        backLink: "← Powrót do SenZon™",
+        tagPricing: "Ceny & Usługi",
+        h1Pricing: "Przejrzyste. Poziomowane. Bez niespodzianek.",
+        pPricing: "Wybierz usługę dopasowaną do twojej sytuacji. Każdy poziom jest zdefiniowany, wyceniony i gotowy do startu.",
+        tagS1: "Usługa 01", h2S1: "🛠 AI Product Build",
+        labelS1: '"Od pomysłu do żywego produktu w 14 dni" — dla nietech­nicznych founderów, którzy mają dość czekania.',
+        thTier: "Poziom", thWhat: "Co Otrzymujesz", thPrice: "Cena", thAddon: "Dodatek", thCovers: "Co Obejmuje",
+        s1Starter: "Starter", s1StarterDesc: "Landing page + główna funkcja + wdrożenie",
+        s1Full: "Pełna Budowa", s1FullDesc: "Kompletne MVP, płatności, auth, własna domena",
+        s1Premium: "Premium", s1PremiumDesc: "Pełny produkt + lejek marketingowy + automatyzacje",
+        tagS2: "Usługa 02", h2S2: "🌐 Obecność Cyfrowa",
+        labelS2: '"Twój biznes, w pełni żywy online" — dla lokalnych firm i MŚP, które są niewidoczne lub tak wyglądają.',
+        s2Essential: "Podstawowy", s2EssentialDesc: "Logo + strona + konfiguracja mediów społecznościowych",
+        s2Full: "Pełna Obecność", s2FullDesc: "Marka + strona + PWA + SEO + system treści",
+        s2Running: "Gotowy i Działający", s2RunningDesc: "Wszystko powyżej + 30 dni zarządzanych treści",
+        tagS3: "Usługa 03", h2S3: "🧠 Systemy AI & Strategia",
+        labelS3: '"Mózg stojący za twoją operacją" — dla tych, którzy chcą pracować mądrzej, nie zatrudniać więcej.',
+        s3Clarity: "Sesja Klarowności", s3ClarityDesc: "90-min rozmowa strategiczna + pisemny plan działania",
+        s3Kit: "AI Operator Kit", s3KitDesc: "Master doc + biblioteka promptów + mapa procesów",
+        s3Full: "Pełny System", s3FullDesc: "Kompletny system operacyjny AI dla twojego biznesu",
+        tagAddons: "Dodatki", h2Addons: "Dodaj to, czego potrzebujesz",
+        pAddons: "Dostępne z dowolnym poziomem usług. Łącz według potrzeb.",
+        a1: "Pozyskanie & Konfiguracja Domeny", a1Desc: "Wyszukiwanie, zakup, konfiguracja DNS i profesjonalny email. Gotowe od pierwszego dnia.",
+        a2: "Zarządzanie Mediami Społecznościowymi", a2Desc: "Miesięczne tworzenie i publikowanie treści na twoich platformach.",
+        a3: "Audyt Monetyzacji", a3Desc: "Przegląd twojego produktu lub platformy — niezidentyfikowane strumienie przychodów z jasnym planem działania.",
+        a4: "Sesja Strategii Wzrostu", a4Desc: "Zidentyfikuj swoją następną dźwignię przychodów i zbuduj plan na 90 dni, aby ją osiągnąć.",
+        a5: "Konfiguracja Email Marketingu", a5Desc: "Architektura sekwencji, copywriting i pełna konfiguracja techniczna. Zbudowane do konwersji.",
+        a6: "Badanie Konkurencji & Rynku", a6Desc: "Strukturalna analiza rynku, konkurentów i luk pozycjonowania — dostarczona jako pisemny raport.",
+        tagReady: "Gotowy?", h2Ready: "Nie wiesz który poziom pasuje?",
+        pReady: "Zarezerwuj bezpłatną 20-minutową rozmowę. Doprecyzujemy razem i wyjdziesz z jasną odpowiedzią — bez pitchu, bez presji.",
+        btnBook: "Zarezerwuj Bezpłatną 20-Min Rozmowę →", btnAsk: "Zadaj Pytanie →",
+        footer: "SenZon™ · Operator AI · Zbudowane z nieracjonalną prędkością (tą dobrą)."
+      }
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const lang = getLang();
+      const t = translations[lang] || translations.en;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      const footer = document.querySelector('[data-i18n-footer]');
+      if (footer && t.footer) footer.innerHTML = t.footer + ' · <a href="mailto:support@senzon.eu">support@senzon.eu</a>';
+    });
   </script>
 </body>
 </html>
