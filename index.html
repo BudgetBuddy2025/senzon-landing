@@ -409,21 +409,26 @@
       return headlines[b] ? b : 'en';
     }
     function typewrite(el, text) {
-      const chars = '!@#$%^&*<>?/\\|[]{}~αβΩ∆∇※▓░█▒';
+      const chars = 'ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ01';
       let frame = 0;
-      const totalFrames = text.length * 6;
+      const framesPerChar = 8;
+      const totalFrames = text.length * framesPerChar;
 
       function scramble() {
         let output = '';
-        const revealed = Math.floor(frame / 3);
+        const revealed = Math.floor(frame / framesPerChar);
 
         for (let i = 0; i < text.length; i++) {
           if (i < revealed) {
-            output += text[i];
+            output += '<span style="color:#00ff41;text-shadow:0 0 8px #00ff41">' + text[i] + '</span>';
           } else if (i === revealed) {
-            output += '<span style="color:var(--accent2)">' + chars[Math.floor(Math.random() * chars.length)] + '</span>';
+            const glitch = chars[Math.floor(Math.random() * chars.length)];
+            const brightness = 0.6 + Math.random() * 0.4;
+            output += '<span style="color:#00ff41;opacity:' + brightness + ';text-shadow:0 0 12px #00ff41,0 0 24px #00ff41">' + glitch + '</span>';
           } else {
-            output += '<span style="opacity:0">' + text[i] + '</span>';
+            const ghost = chars[Math.floor(Math.random() * chars.length)];
+            const fade = 0.05 + Math.random() * 0.15;
+            output += '<span style="color:#00ff41;opacity:' + fade + '">' + ghost + '</span>';
           }
         }
 
@@ -433,7 +438,7 @@
         if (frame <= totalFrames) {
           requestAnimationFrame(scramble);
         } else {
-          el.textContent = text;
+          el.innerHTML = '<span style="color:#00ff41;text-shadow:0 0 8px #00ff41">' + text + '</span>';
         }
       }
 
