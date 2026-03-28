@@ -282,34 +282,15 @@
     .tip-text::after {
       content: '';
       position: absolute;
-      top: 100%;
+      bottom: 100%;
       left: 50%;
       transform: translateX(-50%);
       border: 6px solid transparent;
-      border-top-color: rgba(255,255,255,0.15);
-    }
-    .tip-text.tip-flip {
-      bottom: auto;
-      top: calc(100% + 8px);
-    }
-    .tip-text.tip-flip::after {
-      top: auto;
-      bottom: 100%;
-      border-top-color: transparent;
       border-bottom-color: rgba(255,255,255,0.15);
     }
-    .tip-wrap:hover .tip-text,
     .tip-wrap.active .tip-text {
       visibility: visible;
       opacity: 1;
-    }
-    #tip-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: transparent;
-      pointer-events: none;
-      z-index: 199;
     }
   </style>
 </head>
@@ -328,7 +309,6 @@
       <li><a href="mailto:support@senzon.eu?subject=Discovery Call Request" class="nav-cta">Book a Call</a></li>
     </ul>
   </nav>
-  <div id="tip-overlay"></div>
   <div class="bg-orb"></div>
   <canvas id="particles-canvas"></canvas>
   <div class="page">
@@ -887,80 +867,54 @@
     });
   </script>
   <script>
-    const tipOverlay = document.getElementById('tip-overlay');
-
-    function resetTip(tip) {
-      tip.style.cssText = '';
-      tip.classList.remove('tip-flip');
-    }
+    let tipTimer = null;
 
     function closeAllTips() {
+      clearTimeout(tipTimer);
+      tipTimer = null;
       document.querySelectorAll('.tip-wrap.active').forEach(w => {
         w.classList.remove('active');
         const tip = w.querySelector('.tip-text');
-        if (tip) resetTip(tip);
+        if (tip) tip.style.cssText = '';
       });
-      if (tipOverlay) tipOverlay.style.display = 'none';
-    }
-
-    function openTip(wrap) {
-      const tip = wrap.querySelector('.tip-text');
-      const badge = wrap.querySelector('.tip-badge');
-      if (!tip || !badge) return;
-      resetTip(tip);
-
-      if (window.innerWidth <= 480) {
-        tip.style.position = 'fixed';
-        tip.style.left = '50%';
-        tip.style.top = '50%';
-        tip.style.bottom = 'auto';
-        tip.style.transform = 'translate(-50%, -50%)';
-        tip.style.maxWidth = 'calc(100vw - 32px)';
-        if (tipOverlay) tipOverlay.style.display = 'block';
-        wrap.classList.add('active');
-        return;
-      }
-
-      // Anchor tooltip to badge center, not wrap center
-      const badgeRect = badge.getBoundingClientRect();
-      const wrapRect = wrap.getBoundingClientRect();
-      const badgeCenterInWrap = badgeRect.left + badgeRect.width / 2 - wrapRect.left;
-      tip.style.left = badgeCenterInWrap + 'px';
-      tip.style.transform = 'translateX(-50%)';
-
-      wrap.classList.add('active');
-
-      const rect = tip.getBoundingClientRect();
-      const vw = window.innerWidth;
-      if (rect.left < 8) {
-        tip.style.left = (badgeCenterInWrap + (8 - rect.left)) + 'px';
-      } else if (rect.right > vw - 8) {
-        tip.style.left = (badgeCenterInWrap - (rect.right - (vw - 8))) + 'px';
-      }
-
-      const rect2 = tip.getBoundingClientRect();
-      if (rect2.top < 8) {
-        tip.style.bottom = 'auto';
-        tip.style.top = 'calc(100% + 8px)';
-        tip.classList.add('tip-flip');
-      }
     }
 
     document.querySelectorAll('.tip-badge').forEach(badge => {
       badge.addEventListener('click', e => {
         e.stopPropagation();
         const wrap = badge.closest('.tip-wrap');
-        const wasActive = wrap.classList.contains('active');
+        const tip = wrap ? wrap.querySelector('.tip-text') : null;
+        const wasActive = wrap && wrap.classList.contains('active');
+
         closeAllTips();
-        if (!wasActive) openTip(wrap);
+        if (wasActive || !tip) return;
+
+        const r = badge.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        tip.style.position = 'fixed';
+        tip.style.top = (r.bottom + 8) + 'px';
+        tip.style.bottom = 'auto';
+        tip.style.left = cx + 'px';
+        tip.style.transform = 'translateX(-50%)';
+
+        wrap.classList.add('active');
+
+        // Clamp to viewport
+        const vw = window.innerWidth;
+        const tr = tip.getBoundingClientRect();
+        if (tr.right > vw - 8) {
+          tip.style.left = (cx - (tr.right - (vw - 8))) + 'px';
+        } else if (tr.left < 8) {
+          tip.style.left = (cx + (8 - tr.left)) + 'px';
+        }
+
+        tipTimer = setTimeout(closeAllTips, 2000);
       });
     });
 
     document.addEventListener('click', e => {
-      if (!e.target.closest('.tip-wrap')) closeAllTips();
+      if (!e.target.closest('.tip-badge')) closeAllTips();
     });
-
-    if (tipOverlay) tipOverlay.addEventListener('click', closeAllTips);
   </script>
   <script>
   const tipTranslations = {
