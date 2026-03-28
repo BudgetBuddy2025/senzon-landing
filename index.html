@@ -232,20 +232,6 @@
       z-index: 0;
     }
 
-    /* Typewriter cursor */
-    .typewriter-cursor {
-      display: inline-block;
-      width: 3px;
-      height: 1em;
-      background: var(--accent2);
-      margin-left: 4px;
-      vertical-align: middle;
-      animation: blink 0.8s step-end infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
   </style>
 </head>
 <body>
@@ -422,20 +408,36 @@
       const b = (navigator.language || navigator.userLanguage || 'en').toLowerCase().slice(0,2);
       return headlines[b] ? b : 'en';
     }
-    function typewrite(el, text, speed = 55) {
-      el.textContent = '';
-      const cursor = document.createElement('span');
-      cursor.className = 'typewriter-cursor';
-      el.appendChild(cursor);
-      let i = 0;
-      const interval = setInterval(() => {
-        el.insertBefore(document.createTextNode(text[i]), cursor);
-        i++;
-        if (i >= text.length) {
-          clearInterval(interval);
-          setTimeout(() => cursor.remove(), 2000);
+    function typewrite(el, text) {
+      const chars = '!@#$%^&*<>?/\\|[]{}~αβΩ∆∇※▓░█▒';
+      let frame = 0;
+      const totalFrames = text.length * 6;
+
+      function scramble() {
+        let output = '';
+        const revealed = Math.floor(frame / 3);
+
+        for (let i = 0; i < text.length; i++) {
+          if (i < revealed) {
+            output += text[i];
+          } else if (i === revealed) {
+            output += '<span style="color:var(--accent2)">' + chars[Math.floor(Math.random() * chars.length)] + '</span>';
+          } else {
+            output += '<span style="opacity:0">' + text[i] + '</span>';
+          }
         }
-      }, speed);
+
+        el.innerHTML = output;
+        frame++;
+
+        if (frame <= totalFrames) {
+          requestAnimationFrame(scramble);
+        } else {
+          el.textContent = text;
+        }
+      }
+
+      scramble();
     }
     window.addEventListener('DOMContentLoaded', () => {
       const lang = getLang();
