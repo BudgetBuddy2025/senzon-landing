@@ -71,14 +71,14 @@
     .page {
       max-width: 960px;
       margin: 0 auto;
-      padding: 6px 16px 64px;
+      padding: 0 16px 64px;
     }
 
     /* Logo + glitch/ripple */
     .logo-wrap {
       display: flex;
       justify-content: center;
-      margin-bottom: 6px;
+      margin-bottom: 0;
       position: relative;
     }
     .logo {
@@ -91,6 +91,9 @@
       width: 100%;
       display: block;
       border-radius: 12px;
+      max-height: 140px;
+      object-fit: contain;
+      object-position: center;
     }
     .logo::before,
     .logo::after {
