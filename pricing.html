@@ -219,6 +219,76 @@
       .bg-orb { animation: none !important; }
       * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
+    .tip-wrap {
+      position: relative;
+      display: inline;
+    }
+    .tip-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: rgba(63,213,255,0.15);
+      border: 1px solid rgba(63,213,255,0.4);
+      color: var(--accent2);
+      font-size: 0.6rem;
+      font-weight: 700;
+      margin-left: 5px;
+      cursor: default;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .tip-badge:hover {
+      background: rgba(63,213,255,0.3);
+    }
+    .tip-text {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1630;
+      border: 1px solid rgba(123,92,255,0.35);
+      color: var(--text);
+      font-size: 0.78rem;
+      line-height: 1.5;
+      padding: 10px 14px;
+      border-radius: 10px;
+      width: 220px;
+      z-index: 200;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    }
+    .tip-text::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: rgba(123,92,255,0.35);
+    }
+    .tip-wrap:hover .tip-text,
+    .tip-wrap.active .tip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+    @media (max-width: 640px) {
+      .tip-text {
+        left: auto;
+        right: 0;
+        transform: none;
+        width: 200px;
+      }
+      .tip-text::after { left: auto; right: 16px; transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -264,18 +334,34 @@
           </thead>
           <tbody>
             <tr>
-              <td class="label" data-i18n="s1Starter">Starter</td>
-              <td data-i18n="s1StarterDesc">Landing page + core feature + deployment</td>
+              <td class="label">Starter</td>
+              <td>
+                <span class="tip-wrap">Landing page<span class="tip-badge">i</span><span class="tip-text">A single-page website designed to present your product or service and convert visitors into paying customers or leads.</span></span>
+                +
+                <span class="tip-wrap">core feature<span class="tip-badge">i</span><span class="tip-text">The one essential function your product must do to be useful. Everything else is secondary. We identify it, build it, and make it work perfectly.</span></span>
+                +
+                <span class="tip-wrap">deployment<span class="tip-badge">i</span><span class="tip-text">Publishing your product to a live server with a real URL — accessible to anyone on the internet from day one.</span></span>
+              </td>
               <td class="price">€1,500</td>
             </tr>
             <tr>
-              <td class="label" data-i18n="s1Full">Full Build</td>
-              <td data-i18n="s1FullDesc">Complete MVP, payments, auth, custom domain</td>
+              <td class="label">Full Build</td>
+              <td>
+                <span class="tip-wrap">Complete MVP<span class="tip-badge">i</span><span class="tip-text">Minimum Viable Product — the leanest version of your product that works, can be sold, and lets you validate your idea with real users before investing more.</span></span>,
+                <span class="tip-wrap">payments<span class="tip-badge">i</span><span class="tip-text">Full payment processing integration via Stripe — so your product can accept real money from day one, including subscriptions and one-time purchases.</span></span>,
+                <span class="tip-wrap">auth<span class="tip-badge">i</span><span class="tip-text">Authentication — a secure user login and registration system. Includes email/password and social login options like Google or Discord.</span></span>,
+                <span class="tip-wrap">custom domain<span class="tip-badge">i</span><span class="tip-text">Your own branded web address (e.g. yourproduct.com) — fully configured, SSL secured, and live.</span></span>
+              </td>
               <td class="price">€3,500</td>
             </tr>
             <tr>
-              <td class="label" data-i18n="s1Premium">Premium</td>
-              <td data-i18n="s1PremiumDesc">Full product + marketing funnel + automations</td>
+              <td class="label">Premium</td>
+              <td>
+                Full product +
+                <span class="tip-wrap">marketing funnel<span class="tip-badge">i</span><span class="tip-text">An automated sequence — landing page, email flow, and conversion touchpoints — designed to turn visitors into paying customers while you sleep.</span></span>
+                +
+                <span class="tip-wrap">automations<span class="tip-badge">i</span><span class="tip-text">Workflows that run automatically without manual input — email sequences, lead notifications, data syncing, onboarding flows, and more.</span></span>
+              </td>
               <td class="price-accent">€6,000</td>
             </tr>
           </tbody>
@@ -299,18 +385,37 @@
           </thead>
           <tbody>
             <tr>
-              <td class="label" data-i18n="s2Essential">Essential</td>
-              <td data-i18n="s2EssentialDesc">Logo + website + social setup</td>
+              <td class="label">Essential</td>
+              <td>
+                <span class="tip-wrap">Logo<span class="tip-badge">i</span><span class="tip-text">A professional visual identity mark for your business — designed to be recognisable and consistent across all platforms and materials.</span></span>
+                +
+                <span class="tip-wrap">website<span class="tip-badge">i</span><span class="tip-text">A fully built, mobile-responsive, fast-loading website for your business — designed to convert visitors and rank on Google.</span></span>
+                +
+                <span class="tip-wrap">social setup<span class="tip-badge">i</span><span class="tip-text">Creation and professional configuration of your business profiles on the right social media platforms — branded, complete, and ready to post.</span></span>
+              </td>
               <td class="price">€800</td>
             </tr>
             <tr>
-              <td class="label" data-i18n="s2Full">Full Presence</td>
-              <td data-i18n="s2FullDesc">Brand + website + PWA + SEO + content system</td>
+              <td class="label">Full Presence</td>
+              <td>
+                <span class="tip-wrap">Brand<span class="tip-badge">i</span><span class="tip-text">Your complete visual identity system — logo, colour palette, typography, and usage guidelines. The foundation everything else is built on.</span></span>
+                +
+                <span class="tip-wrap">website<span class="tip-badge">i</span><span class="tip-text">A fully built, mobile-responsive, fast-loading website for your business — designed to convert visitors and rank on Google.</span></span>
+                +
+                <span class="tip-wrap">PWA<span class="tip-badge">i</span><span class="tip-text">Progressive Web App — a website that installs and behaves like a native mobile app. Fast, works offline, and requires no app store.</span></span>
+                +
+                <span class="tip-wrap">SEO<span class="tip-badge">i</span><span class="tip-text">Search Engine Optimisation — technical and content improvements that help your website rank higher on Google and drive organic traffic without paying for ads.</span></span>
+                +
+                <span class="tip-wrap">content system<span class="tip-badge">i</span><span class="tip-text">A structured plan and repeatable workflow for creating and publishing content consistently — so your online presence keeps growing without constant effort.</span></span>
+              </td>
               <td class="price">€2,000</td>
             </tr>
             <tr>
-              <td class="label" data-i18n="s2Running">Done & Running</td>
-              <td data-i18n="s2RunningDesc">Everything above + 30 days managed content</td>
+              <td class="label">Done &amp; Running</td>
+              <td>
+                Everything above +
+                <span class="tip-wrap">30 days managed content<span class="tip-badge">i</span><span class="tip-text">We write, design, schedule, and post your social media content for 30 days — so your business stays active and visible while you focus on everything else.</span></span>
+              </td>
               <td class="price-accent">€3,200</td>
             </tr>
           </tbody>
@@ -334,18 +439,30 @@
           </thead>
           <tbody>
             <tr>
-              <td class="label" data-i18n="s3Clarity">Clarity Session</td>
-              <td data-i18n="s3ClarityDesc">90-min strategy call + written action plan</td>
+              <td class="label">Clarity Session</td>
+              <td>
+                <span class="tip-wrap">90-min strategy call<span class="tip-badge">i</span><span class="tip-text">A focused video session where we map your goals, challenges, market position, and the clearest path forward — no fluff, just actionable direction.</span></span>
+                +
+                <span class="tip-wrap">written action plan<span class="tip-badge">i</span><span class="tip-text">A structured document delivered after the call — outlining your priorities, recommended next steps, and a clear roadmap you can execute immediately.</span></span>
+              </td>
               <td class="price">€250</td>
             </tr>
             <tr>
-              <td class="label" data-i18n="s3Kit">AI Operator Kit</td>
-              <td data-i18n="s3KitDesc">Master doc + prompt library + workflow map</td>
+              <td class="label">AI Operator Kit</td>
+              <td>
+                <span class="tip-wrap">Master doc<span class="tip-badge">i</span><span class="tip-text">A comprehensive reference document capturing everything about your business — context, goals, tone, processes, and positioning — used to brief AI tools instantly and consistently.</span></span>
+                +
+                <span class="tip-wrap">prompt library<span class="tip-badge">i</span><span class="tip-text">A curated set of tested, ready-to-use AI prompts tailored specifically to your business — for content creation, strategy, customer communication, and daily operations.</span></span>
+                +
+                <span class="tip-wrap">workflow map<span class="tip-badge">i</span><span class="tip-text">A clear diagram of your key business processes — showing how tasks flow, where bottlenecks are, and exactly where AI tools can be inserted to save time and money.</span></span>
+              </td>
               <td class="price">€500</td>
             </tr>
             <tr>
-              <td class="label" data-i18n="s3Full">Full System</td>
-              <td data-i18n="s3FullDesc">Complete AI operating system for your business</td>
+              <td class="label">Full System</td>
+              <td>
+                <span class="tip-wrap">Complete AI operating system<span class="tip-badge">i</span><span class="tip-text">A fully built infrastructure of documents, prompts, automations, and workflows — so your entire business runs with AI as your co-operator. Less hiring. More output.</span></span>
+              </td>
               <td class="price-accent">€1,200</td>
             </tr>
           </tbody>
@@ -369,33 +486,58 @@
           </thead>
           <tbody>
             <tr>
-              <td class="label" data-i18n="a1">Domain Acquisition & Setup</td>
-              <td data-i18n="a1Desc">Research, purchase, DNS config, and professional email. Ready from day one.</td>
+              <td class="label">Domain Acquisition &amp; Setup</td>
+              <td>
+                Research, purchase,
+                <span class="tip-wrap">DNS config<span class="tip-badge">i</span><span class="tip-text">Domain Name System configuration — the technical setup that connects your domain to your website, email, and other services so everything works under your brand.</span></span>,
+                and
+                <span class="tip-wrap">professional email<span class="tip-badge">i</span><span class="tip-text">A branded email address (e.g. hello@yourbusiness.com) — fully configured, connected to your domain, and ready to use from day one.</span></span>.
+                Ready from day one.
+              </td>
               <td class="price">€150</td>
             </tr>
             <tr>
-              <td class="label" data-i18n="a2">Social Media Management</td>
-              <td data-i18n="a2Desc">Monthly content creation and posting across your platforms.</td>
+              <td class="label">Social Media Management</td>
+              <td>
+                <span class="tip-wrap">Monthly content creation<span class="tip-badge">i</span><span class="tip-text">We write, design, and schedule social media posts for your business every month — keeping your brand active and visible without you lifting a finger.</span></span>
+                and posting across your platforms.
+              </td>
               <td class="price">€400/mo</td>
             </tr>
             <tr>
-              <td class="label" data-i18n="a3">Monetisation Audit</td>
-              <td data-i18n="a3Desc">Review of your existing product or platform — untapped revenue streams identified with a clear action plan.</td>
+              <td class="label">Monetisation Audit</td>
+              <td>
+                Review of your existing product or platform —
+                <span class="tip-wrap">untapped revenue streams<span class="tip-badge">i</span><span class="tip-text">The different ways your product or business could be generating income that it currently isn't — subscriptions, upsells, licensing, affiliate models, and more.</span></span>
+                identified with a clear action plan.
+              </td>
               <td class="price">€350</td>
             </tr>
             <tr>
-              <td class="label" data-i18n="a4">Growth Strategy Session</td>
-              <td data-i18n="a4Desc">Identify your next revenue lever and build the 90-day plan to hit it.</td>
+              <td class="label">Growth Strategy Session</td>
+              <td>
+                Identify your next revenue lever and build the
+                <span class="tip-wrap">90-day plan<span class="tip-badge">i</span><span class="tip-text">A concrete, step-by-step roadmap covering the next three months — specific priorities, weekly actions, and measurable targets to hit your next growth milestone.</span></span>
+                to hit it.
+              </td>
               <td class="price">€250</td>
             </tr>
             <tr>
-              <td class="label" data-i18n="a5">Email Marketing Setup</td>
-              <td data-i18n="a5Desc">Sequence architecture, copywriting, and full technical setup. Built to convert.</td>
+              <td class="label">Email Marketing Setup</td>
+              <td>
+                <span class="tip-wrap">Sequence architecture<span class="tip-badge">i</span><span class="tip-text">The strategic structure of your email campaign — who gets which email, when, and why — fully mapped out before a single word is written.</span></span>,
+                <span class="tip-wrap">copywriting<span class="tip-badge">i</span><span class="tip-text">Professional writing crafted specifically to persuade, engage, and convert — for every email in your sequence, from welcome to sale.</span></span>,
+                and full technical setup. Built to convert.
+              </td>
               <td class="price">€600</td>
             </tr>
             <tr>
-              <td class="label" data-i18n="a6">Competitor & Market Research</td>
-              <td data-i18n="a6Desc">Structured analysis of your market, competitors, and positioning gaps — delivered as a written report.</td>
+              <td class="label">Competitor &amp; Market Research</td>
+              <td>
+                Structured analysis of your market, competitors, and
+                <span class="tip-wrap">positioning gaps<span class="tip-badge">i</span><span class="tip-text">Areas where your competitors are weak, absent, or underserving their audience — where you can establish a stronger, more unique, and more profitable market position.</span></span>
+                — delivered as a written report with strategic recommendations.
+              </td>
               <td class="price">€400</td>
             </tr>
           </tbody>
@@ -720,6 +862,17 @@
       });
       const footer = document.querySelector('[data-i18n-footer]');
       if (footer && t.footer) footer.innerHTML = t.footer + ' · <a href="mailto:support@senzon.eu">support@senzon.eu</a>';
+    });
+  </script>
+  <script>
+    document.querySelectorAll('.tip-wrap').forEach(wrap => {
+      wrap.addEventListener('click', e => {
+        e.stopPropagation();
+        wrap.classList.toggle('active');
+      });
+    });
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.tip-wrap.active').forEach(w => w.classList.remove('active'));
     });
   </script>
 </body>
