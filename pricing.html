@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SenZon™ – Pricing & Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/logo_sz.png" />
+  <meta name="description" content="SenZon™ full pricing and services. AI Product Build, Digital Presence, AI Systems & Strategy. Transparent tiers, no hidden costs." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://senzon.eu/pricing" />
+  <style>
+    :root {
+      --bg: #050509;
+      --accent: #7b5cff;
+      --accent2: #3fd5ff;
+      --text: #f5f5f5;
+      --muted: #a0a0b5;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #151528 0, #050509 55%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 16px 80px;
+      position: relative;
+      z-index: 1;
+    }
+    h1, h2, h3 { font-weight: 650; letter-spacing: 0.03em; }
+    h1 { font-size: 2.1rem; margin-bottom: 8px; text-align: center; }
+    h2 { font-size: 1.4rem; margin-bottom: 12px; }
+    h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .center { text-align: center; }
+    .sub {
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0.5rem auto 1.5rem;
+      text-align: center;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent2);
+      margin-bottom: 6px;
+    }
+    section { margin-bottom: 56px; }
+    .card {
+      border-radius: 14px;
+      padding: 24px 22px;
+      background: radial-gradient(circle at top left, #1a1630 0, #0a0a14 55%);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 20px;
+    }
+    .card-accent { border-color: rgba(123,92,255,0.3); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 16px;
+    }
+    thead tr { border-bottom: 1px solid rgba(255,255,255,0.1); }
+    tbody tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    tbody tr:last-child { border-bottom: none; }
+    th {
+      text-align: left;
+      padding: 8px 6px;
+      color: var(--accent2);
+      font-weight: 600;
+    }
+    th.right, td.right { text-align: right; }
+    td { padding: 12px 6px; color: var(--muted); vertical-align: top; }
+    td.label { color: var(--text); font-weight: 600; white-space: nowrap; }
+    td.price { color: var(--text); text-align: right; white-space: nowrap; }
+    td.price-accent { color: var(--accent2); font-weight: 700; text-align: right; white-space: nowrap; }
+    .service-label {
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.95rem;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #050509;
+      font-weight: 600;
+      box-shadow: 0 0 18px rgba(0,0,0,0.6);
+      margin-top: 8px;
+    }
+    .btn.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: rgba(255,255,255,0.18);
+    }
+    .btn:hover { filter: brightness(1.05); transform: translateY(-1px); text-decoration: none; }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .back-link:hover { color: var(--text); }
+    .bg-orb {
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(123,92,255,0.08) 0%, transparent 70%);
+      animation: orbPulse 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes orbPulse {
+      0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+      50% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+    }
+    #particles-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    @media (max-width: 600px) {
+      td, th { padding: 8px 4px; font-size: 0.82rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orb"></div>
+  <canvas id="particles-canvas"></canvas>
+  <div class="page">
+
+    <a href="/" class="back-link">← Back to SenZon™</a>
+
+    <div class="center" style="margin-bottom:48px;">
+      <span class="tag">Pricing & Services</span>
+      <h1>Transparent. Tiered. No surprises.</h1>
+      <p class="sub">Pick the service that fits where you are. Every tier is scoped, priced, and ready to move.</p>
+    </div>
+
+    <!-- SERVICE 1 -->
+    <section id="product-build">
+      <div class="card">
+        <span class="tag">Service 01</span>
+        <h2>🛠 AI Product Build</h2>
+        <span class="service-label">"From idea to live product in 14 days" — for non-technical founders who are done waiting.</span>
+        <table>
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>What You Get</th>
+              <th class="right">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">Starter</td>
+              <td>Landing page + core feature + deployment</td>
+              <td class="price">€1,500</td>
+            </tr>
+            <tr>
+              <td class="label">Full Build</td>
+              <td>Complete MVP, payments, auth, custom domain</td>
+              <td class="price">€3,500</td>
+            </tr>
+            <tr>
+              <td class="label">Premium</td>
+              <td>Full product + marketing funnel + automations</td>
+              <td class="price-accent">€6,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SERVICE 2 -->
+    <section id="digital-presence">
+      <div class="card">
+        <span class="tag">Service 02</span>
+        <h2>🌐 Digital Presence</h2>
+        <span class="service-label">"Your business, fully alive online" — for local businesses and SMEs who are invisible, or look like it.</span>
+        <table>
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>What You Get</th>
+              <th class="right">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">Essential</td>
+              <td>Logo + website + social setup</td>
+              <td class="price">€800</td>
+            </tr>
+            <tr>
+              <td class="label">Full Presence</td>
+              <td>Brand + website + PWA + SEO + content system</td>
+              <td class="price">€2,000</td>
+            </tr>
+            <tr>
+              <td class="label">Done & Running</td>
+              <td>Everything above + 30 days managed content</td>
+              <td class="price-accent">€3,200</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SERVICE 3 -->
+    <section id="ai-strategy">
+      <div class="card">
+        <span class="tag">Service 03</span>
+        <h2>🧠 AI Systems & Strategy</h2>
+        <span class="service-label">"The brain behind your operation" — for operators who want to work smarter, not hire more.</span>
+        <table>
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>What You Get</th>
+              <th class="right">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">Clarity Session</td>
+              <td>90-min strategy call + written action plan</td>
+              <td class="price">€250</td>
+            </tr>
+            <tr>
+              <td class="label">AI Operator Kit</td>
+              <td>Master doc + prompt library + workflow map</td>
+              <td class="price">€500</td>
+            </tr>
+            <tr>
+              <td class="label">Full System</td>
+              <td>Complete AI operating system for your business</td>
+              <td class="price-accent">€1,200</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ADD-ONS -->
+    <section id="addons">
+      <span class="tag">Add-Ons</span>
+      <h2>Bolt-on what you need</h2>
+      <p style="color:var(--muted); margin-bottom:20px; font-size:0.9rem;">Available with any service tier. Mix and match to fit your project.</p>
+      <div class="card card-accent">
+        <table>
+          <thead>
+            <tr>
+              <th>Add-On</th>
+              <th>What It Covers</th>
+              <th class="right">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label">Domain Acquisition & Setup</td>
+              <td>Research, purchase, DNS config, and professional email. Ready from day one.</td>
+              <td class="price">€150</td>
+            </tr>
+            <tr>
+              <td class="label">Social Media Management</td>
+              <td>Monthly content creation and posting across your platforms.</td>
+              <td class="price">€400/mo</td>
+            </tr>
+            <tr>
+              <td class="label">Monetisation Audit</td>
+              <td>Review of your existing product or platform — untapped revenue streams identified with a clear action plan.</td>
+              <td class="price">€350</td>
+            </tr>
+            <tr>
+              <td class="label">Growth Strategy Session</td>
+              <td>Identify your next revenue lever and build the 90-day plan to hit it.</td>
+              <td class="price">€250</td>
+            </tr>
+            <tr>
+              <td class="label">Email Marketing Setup</td>
+              <td>Sequence architecture, copywriting, and full technical setup. Built to convert.</td>
+              <td class="price">€600</td>
+            </tr>
+            <tr>
+              <td class="label">Competitor & Market Research</td>
+              <td>Structured analysis of your market, competitors, and positioning gaps — delivered as a written report.</td>
+              <td class="price">€400</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="center">
+      <span class="tag">Ready?</span>
+      <h2>Not sure which tier fits?</h2>
+      <p class="sub">Book a free 20-minute call. We'll scope it together and you'll leave with a clear answer — no pitch, no pressure.</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
+        <a href="mailto:support@senzon.eu?subject=Discovery Call Request" class="btn">Book a Free 20-Min Call →</a>
+        <a href="mailto:support@senzon.eu?subject=Pricing Enquiry" class="btn secondary">Ask a Question →</a>
+      </div>
+      <p style="margin-top:16px; color:var(--muted); font-size:0.85rem;">support@senzon.eu</p>
+    </section>
+
+    <footer>
+      SenZon™ · AI Operator for Hire · <a href="mailto:support@senzon.eu">support@senzon.eu</a> · Built with unreasonable speed (the good kind).
+    </footer>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    function createParticle() {
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5 + 0.3,
+        dx: (Math.random() - 0.5) * 0.3,
+        dy: -Math.random() * 0.4 - 0.1,
+        opacity: Math.random() * 0.5 + 0.1,
+        color: Math.random() > 0.5 ? '123,92,255' : '63,213,255'
+      };
+    }
+    for (let i = 0; i < 90; i++) particles.push(createParticle());
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, i) => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.color},${p.opacity})`;
+        ctx.fill();
+        p.x += p.dx; p.y += p.dy;
+        if (p.y < -5) particles[i] = createParticle();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
+</body>
+</html>
