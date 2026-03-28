@@ -57,7 +57,7 @@
     body { font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:radial-gradient(circle at top,#151528 0,#050509 55%); color:var(--text); line-height:1.6; overflow-x:hidden; }
     a { color:var(--accent2); text-decoration:none; }
     a:hover { text-decoration:underline; }
-    .page { max-width:960px; margin:0 auto; padding:48px 16px 80px; position:relative; z-index:1; }
+    .page { max-width:960px; margin:0 auto; padding:56px 16px 80px; position:relative; z-index:1; }
     h1,h2,h3 { font-weight:650; letter-spacing:0.03em; }
     h1 { font-size:2.1rem; margin-bottom:8px; text-align:center; }
     h2 { font-size:1.4rem; margin-bottom:12px; }
@@ -94,9 +94,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      background: rgba(5,5,9,0.85);
+      background: #050509;
       border-bottom: 1px solid rgba(255,255,255,0.06);
       padding: 0 24px;
       display: flex;
@@ -868,11 +866,15 @@
     document.querySelectorAll('.tip-wrap').forEach(wrap => {
       wrap.addEventListener('click', e => {
         e.stopPropagation();
-        wrap.classList.toggle('active');
+        const wasActive = wrap.classList.contains('active');
+        document.querySelectorAll('.tip-wrap.active').forEach(w => w.classList.remove('active'));
+        if (!wasActive) wrap.classList.add('active');
       });
     });
-    document.addEventListener('click', () => {
-      document.querySelectorAll('.tip-wrap.active').forEach(w => w.classList.remove('active'));
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.tip-wrap')) {
+        document.querySelectorAll('.tip-wrap.active').forEach(w => w.classList.remove('active'));
+      }
     });
   </script>
   <script>
