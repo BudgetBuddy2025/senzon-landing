@@ -1162,5 +1162,13 @@
 
   window.addEventListener('DOMContentLoaded', applyTipTranslations);
   </script>
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        const menu = document.querySelector('.nav-links');
+        if (menu) menu.classList.remove('open');
+      });
+    });
+  </script>
 </body>
 </html>
