@@ -90,7 +90,16 @@
     @keyframes orbPulse { 0%,100%{transform:translateX(-50%) scale(1);opacity:0.6} 50%{transform:translateX(-50%) scale(1.15);opacity:1} }
     #particles-canvas { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; }
     footer { margin-top:32px; text-align:center; font-size:0.8rem; color:var(--muted); }
-    @media (max-width:600px) { td,th{padding:6px 3px;font-size:0.78rem} td.label,td.price,td.price-accent{white-space:normal} }
+    @media (max-width: 768px) {
+      table { display: block; overflow-x: hidden; }
+      thead { display: none; }
+      tbody { display: block; }
+      tr { display: block; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      tr:last-child { border-bottom: none; }
+      td { display: block; padding: 4px 0; border: none !important; font-size: 0.88rem; text-align: left !important; white-space: normal; }
+      td.label { font-size: 1rem; font-weight: 700; color: var(--text); padding-bottom: 8px; }
+      td.price, td.price-accent { text-align: left !important; padding-top: 8px; font-size: 1rem; }
+    }
     @media (max-width:480px) { h1{font-size:1.6rem} }
     nav {
       position: sticky;
@@ -568,7 +577,6 @@
         <a href="mailto:support@senzon.eu?subject=Discovery Call Request" class="btn" data-i18n="btnBook">Book a Free 20-Min Call →</a>
         <a href="mailto:support@senzon.eu?subject=Pricing Enquiry" class="btn secondary" data-i18n="btnAsk">Ask a Question →</a>
       </div>
-      <p style="margin-top:16px;color:var(--muted);font-size:0.85rem;">support@senzon.eu</p>
     </section>
 
     <footer class="site-footer">
@@ -897,7 +905,8 @@
 
     function openTip(wrap) {
       const tip = wrap.querySelector('.tip-text');
-      if (!tip) return;
+      const badge = wrap.querySelector('.tip-badge');
+      if (!tip || !badge) return;
       resetTip(tip);
 
       if (window.innerWidth <= 480) {
@@ -912,18 +921,21 @@
         return;
       }
 
+      // Anchor tooltip to badge center, not wrap center
+      const badgeRect = badge.getBoundingClientRect();
+      const wrapRect = wrap.getBoundingClientRect();
+      const badgeCenterInWrap = badgeRect.left + badgeRect.width / 2 - wrapRect.left;
+      tip.style.left = badgeCenterInWrap + 'px';
+      tip.style.transform = 'translateX(-50%)';
+
       wrap.classList.add('active');
 
       const rect = tip.getBoundingClientRect();
       const vw = window.innerWidth;
-      let shift = 0;
       if (rect.left < 8) {
-        shift = 8 - rect.left;
+        tip.style.left = (badgeCenterInWrap + (8 - rect.left)) + 'px';
       } else if (rect.right > vw - 8) {
-        shift = -(rect.right - (vw - 8));
-      }
-      if (shift !== 0) {
-        tip.style.left = `calc(50% + ${shift}px)`;
+        tip.style.left = (badgeCenterInWrap - (rect.right - (vw - 8))) + 'px';
       }
 
       const rect2 = tip.getBoundingClientRect();
@@ -934,9 +946,10 @@
       }
     }
 
-    document.querySelectorAll('.tip-wrap').forEach(wrap => {
-      wrap.addEventListener('click', e => {
+    document.querySelectorAll('.tip-badge').forEach(badge => {
+      badge.addEventListener('click', e => {
         e.stopPropagation();
+        const wrap = badge.closest('.tip-wrap');
         const wasActive = wrap.classList.contains('active');
         closeAllTips();
         if (!wasActive) openTip(wrap);
