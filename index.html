@@ -420,15 +420,15 @@
 
         for (let i = 0; i < text.length; i++) {
           if (i < revealed) {
-            output += '<span style="color:#00ff41;text-shadow:0 0 8px #00ff41">' + text[i] + '</span>';
+            output += '<span style="color:var(--accent2);text-shadow:0 0 8px var(--accent2)">' + text[i] + '</span>';
           } else if (i === revealed) {
             const glitch = chars[Math.floor(Math.random() * chars.length)];
             const brightness = 0.6 + Math.random() * 0.4;
-            output += '<span style="color:#00ff41;opacity:' + brightness + ';text-shadow:0 0 12px #00ff41,0 0 24px #00ff41">' + glitch + '</span>';
+            output += '<span style="color:var(--accent2);opacity:' + brightness + ';text-shadow:0 0 12px var(--accent2),0 0 24px var(--accent2)">' + glitch + '</span>';
           } else {
             const ghost = chars[Math.floor(Math.random() * chars.length)];
             const fade = 0.05 + Math.random() * 0.15;
-            output += '<span style="color:#00ff41;opacity:' + fade + '">' + ghost + '</span>';
+            output += '<span style="color:var(--accent2);opacity:' + fade + '">' + ghost + '</span>';
           }
         }
 
@@ -438,7 +438,7 @@
         if (frame <= totalFrames) {
           requestAnimationFrame(scramble);
         } else {
-          el.innerHTML = '<span style="color:#00ff41;text-shadow:0 0 8px #00ff41">' + text + '</span>';
+          el.innerHTML = '<span style="color:var(--accent2);text-shadow:0 0 8px var(--accent2)">' + text + '</span>';
         }
       }
 
