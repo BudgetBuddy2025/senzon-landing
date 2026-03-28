@@ -260,7 +260,11 @@
       line-height: 1.5;
       padding: 10px 14px;
       border-radius: 10px;
-      width: 220px;
+      max-width: min(280px, 90vw);
+      width: max-content;
+      min-width: 160px;
+      white-space: normal;
+      word-wrap: break-word;
       z-index: 200;
       pointer-events: none;
       transition: opacity 0.2s;
@@ -275,19 +279,27 @@
       border: 6px solid transparent;
       border-top-color: rgba(123,92,255,0.35);
     }
+    .tip-text.tip-flip {
+      bottom: auto;
+      top: calc(100% + 8px);
+    }
+    .tip-text.tip-flip::after {
+      top: auto;
+      bottom: 100%;
+      border-top-color: transparent;
+      border-bottom-color: rgba(123,92,255,0.35);
+    }
     .tip-wrap:hover .tip-text,
     .tip-wrap.active .tip-text {
       visibility: visible;
       opacity: 1;
     }
-    @media (max-width: 640px) {
-      .tip-text {
-        left: auto;
-        right: 0;
-        transform: none;
-        width: 200px;
-      }
-      .tip-text::after { left: auto; right: 16px; transform: none; }
+    #tip-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 199;
     }
   </style>
 </head>
@@ -306,6 +318,7 @@
       <li><a href="mailto:support@senzon.eu?subject=Discovery Call Request" class="nav-cta">Book a Call</a></li>
     </ul>
   </nav>
+  <div id="tip-overlay"></div>
   <div class="bg-orb"></div>
   <canvas id="particles-canvas"></canvas>
   <div class="page">
@@ -865,19 +878,75 @@
     });
   </script>
   <script>
+    const tipOverlay = document.getElementById('tip-overlay');
+
+    function resetTip(tip) {
+      tip.style.cssText = '';
+      tip.classList.remove('tip-flip');
+    }
+
+    function closeAllTips() {
+      document.querySelectorAll('.tip-wrap.active').forEach(w => {
+        w.classList.remove('active');
+        const tip = w.querySelector('.tip-text');
+        if (tip) resetTip(tip);
+      });
+      if (tipOverlay) tipOverlay.style.display = 'none';
+    }
+
+    function openTip(wrap) {
+      const tip = wrap.querySelector('.tip-text');
+      if (!tip) return;
+      resetTip(tip);
+
+      if (window.innerWidth <= 480) {
+        tip.style.position = 'fixed';
+        tip.style.left = '50%';
+        tip.style.top = '50%';
+        tip.style.bottom = 'auto';
+        tip.style.transform = 'translate(-50%, -50%)';
+        tip.style.maxWidth = 'calc(100vw - 32px)';
+        if (tipOverlay) tipOverlay.style.display = 'block';
+        wrap.classList.add('active');
+        return;
+      }
+
+      wrap.classList.add('active');
+
+      const rect = tip.getBoundingClientRect();
+      const vw = window.innerWidth;
+      let shift = 0;
+      if (rect.left < 8) {
+        shift = 8 - rect.left;
+      } else if (rect.right > vw - 8) {
+        shift = -(rect.right - (vw - 8));
+      }
+      if (shift !== 0) {
+        tip.style.left = `calc(50% + ${shift}px)`;
+      }
+
+      const rect2 = tip.getBoundingClientRect();
+      if (rect2.top < 8) {
+        tip.style.bottom = 'auto';
+        tip.style.top = 'calc(100% + 8px)';
+        tip.classList.add('tip-flip');
+      }
+    }
+
     document.querySelectorAll('.tip-wrap').forEach(wrap => {
       wrap.addEventListener('click', e => {
         e.stopPropagation();
         const wasActive = wrap.classList.contains('active');
-        document.querySelectorAll('.tip-wrap.active').forEach(w => w.classList.remove('active'));
-        if (!wasActive) wrap.classList.add('active');
+        closeAllTips();
+        if (!wasActive) openTip(wrap);
       });
     });
+
     document.addEventListener('click', e => {
-      if (!e.target.closest('.tip-wrap')) {
-        document.querySelectorAll('.tip-wrap.active').forEach(w => w.classList.remove('active'));
-      }
+      if (!e.target.closest('.tip-wrap')) closeAllTips();
     });
+
+    if (tipOverlay) tipOverlay.addEventListener('click', closeAllTips);
   </script>
   <script>
   const tipTranslations = {
