@@ -391,16 +391,34 @@
       margin-top: 80px;
       border-top: 1px solid rgba(255,255,255,0.06);
       padding: 48px 24px 32px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 32px;
       font-size: 0.88rem;
+    }
+    .footer-inner {
+      display: flex;
+      gap: 48px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .footer-brand {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
     }
     .footer-brand p {
       color: var(--muted);
       margin-top: 8px;
       font-size: 0.85rem;
       line-height: 1.7;
+    }
+    .footer-cols {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
     }
     .footer-col h4 {
       color: var(--text);
@@ -422,7 +440,6 @@
     }
     .footer-col ul a:hover { color: var(--text); }
     .footer-bottom {
-      grid-column: 1 / -1;
       border-top: 1px solid rgba(255,255,255,0.06);
       padding-top: 20px;
       display: flex;
@@ -434,7 +451,8 @@
       font-size: 0.78rem;
     }
     @media (max-width: 640px) {
-      .site-footer { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 32px; }
+      .footer-cols { flex-direction: column; gap: 24px; }
       .footer-bottom { flex-direction: column; text-align: center; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -595,31 +613,35 @@
     </section>
 
     <footer class="site-footer">
-      <div class="footer-brand">
-        <div class="nav-logo" style="font-size:1.1rem;">SenZon<span style="color:var(--accent2)">™</span></div>
-        <p>AI Operator for Hire.<br>From idea to live product —<br>without a development team.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/pricing.html#product-build">AI Product Build</a></li>
-          <li><a href="/pricing.html#digital-presence">Digital Presence</a></li>
-          <li><a href="/pricing.html#ai-strategy">AI Systems &amp; Strategy</a></li>
-          <li><a href="/pricing.html#addons">Add-Ons</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/#how">How It Works</a></li>
-          <li><a href="/#proof">Why SenZon™</a></li>
-          <li><a href="/pricing.html">Pricing</a></li>
-          <li><a href="mailto:support@senzon.eu?subject=Discovery Call Request">Book a Call</a></li>
-        </ul>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-logo">SenZon™</span>
+          <p>AI Operator for Hire. From idea to live product — without a development team.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="/pricing.html#product-build">AI Product Build</a></li>
+              <li><a href="/pricing.html#digital-presence">Digital Presence</a></li>
+              <li><a href="/pricing.html#ai-systems">AI Systems &amp; Strategy</a></li>
+              <li><a href="/pricing.html#add-ons">Add-Ons</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/#how-it-works">How It Works</a></li>
+              <li><a href="/#why">Why SenZon™</a></li>
+              <li><a href="/#contact">Book a Call</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="footer-bottom">
         <span>© 2025 SenZon™ · Ditta Individuale Professionale · Italy</span>
-        <span>Built with unreasonable speed (the good kind) · <a href="mailto:support@senzon.eu">support@senzon.eu</a></span>
+        <span>Built with unreasonable speed (the good kind) · support@senzon.eu</span>
       </div>
     </footer>
   </div>
@@ -759,6 +781,7 @@
         pContact: "Book a free 20-minute call. No pitch. No pressure. Just clarity on whether we're the right fit.",
         ctaBook: "Book a Free 20-Min Call →",
         ctaEnquiry: "See What We Build →",
+        navPricing: "Pricing", navBookCall: "Book a Call",
         footer: "SenZon™ · AI Operator for Hire · Built with unreasonable speed (the good kind)."
       },
       it: {
@@ -799,6 +822,7 @@
         pContact: "Prenota una call gratuita di 20 minuti. Nessun pitch. Nessuna pressione. Solo chiarezza su se siamo il fit giusto.",
         ctaBook: "Prenota una Call Gratuita di 20 Min →",
         ctaEnquiry: "Scopri Cosa Costruiamo →",
+        navPricing: "Prezzi", navBookCall: "Prenota una Call",
         footer: "SenZon™ · Operatore AI · Costruito con velocità irragionevole (nel senso buono)."
       },
       es: {
@@ -839,6 +863,7 @@
         pContact: "Reserva una llamada gratuita de 20 minutos. Sin pitch. Sin presión. Solo claridad sobre si encajamos bien.",
         ctaBook: "Reserva una Llamada Gratuita de 20 Min →",
         ctaEnquiry: "Ver Qué Construimos →",
+        navPricing: "Precios", navBookCall: "Reserva una Llamada",
         footer: "SenZon™ · Operador IA · Construido con velocidad irrazonable (del bueno)."
       },
       fr: {
@@ -879,6 +904,7 @@
         pContact: "Réservez un appel gratuit de 20 minutes. Pas de pitch. Pas de pression. Juste de la clarté sur notre adéquation.",
         ctaBook: "Réserver un Appel Gratuit de 20 Min →",
         ctaEnquiry: "Voir ce qu'on Construit →",
+        navPricing: "Tarifs", navBookCall: "Réserver un Appel",
         footer: "SenZon™ · Opérateur IA · Construit à une vitesse déraisonnable (dans le bon sens)."
       },
       de: {
@@ -919,6 +945,7 @@
         pContact: "Buche ein kostenloses 20-Minuten-Gespräch. Kein Pitch. Kein Druck. Nur Klarheit, ob wir zusammenpassen.",
         ctaBook: "Kostenloses 20-Min-Gespräch Buchen →",
         ctaEnquiry: "Sehen Was Wir Bauen →",
+        navPricing: "Preise", navBookCall: "Gespräch Buchen",
         footer: "SenZon™ · KI-Operator · Gebaut mit unvernünftiger Geschwindigkeit (die gute Art)."
       },
       pt: {
@@ -959,6 +986,7 @@
         pContact: "Agende uma call gratuita de 20 minutos. Sem pitch. Sem pressão. Só clareza sobre se somos o fit certo.",
         ctaBook: "Agendar Call Gratuita de 20 Min →",
         ctaEnquiry: "Ver o que Construímos →",
+        navPricing: "Preços", navBookCall: "Agendar uma Call",
         footer: "SenZon™ · Operador IA · Construído com velocidade absurda (do jeito bom)."
       },
       pl: {
@@ -999,6 +1027,7 @@
         pContact: "Zarezerwuj bezpłatną 20-minutową rozmowę. Żadnego pitchu. Żadnej presji. Tylko jasność, czy jesteśmy właściwym dopasowaniem.",
         ctaBook: "Zarezerwuj Bezpłatną 20-Min Rozmowę →",
         ctaEnquiry: "Zobacz co Budujemy →",
+        navPricing: "Cennik", navBookCall: "Zarezerwuj Rozmowę",
         footer: "SenZon™ · Operator AI · Zbudowane z nieracjonalną prędkością (tą dobrą)."
       }
     };
@@ -1052,6 +1081,13 @@
       if (svcCards[1]) { svcCards[1].querySelector('h3').textContent = t.h3Marketing; svcCards[1].querySelector('p').textContent = t.pMarketing; }
       if (svcCards[2]) { svcCards[2].querySelector('h3').textContent = t.h3Auto; svcCards[2].querySelector('p').textContent = t.pAuto; }
       set('#services .btn', 'btnPricing');
+      // Nav
+      const navItems = document.querySelectorAll('nav .nav-links li a');
+      if (navItems[0]) navItems[0].textContent = t.tagProblem;
+      if (navItems[1]) navItems[1].textContent = t.tagHow;
+      if (navItems[2]) navItems[2].textContent = t.tagServices;
+      if (navItems[3]) navItems[3].textContent = t.navPricing;
+      if (navItems[4]) navItems[4].textContent = t.navBookCall;
       // Contact
       set('#contact .tag', 'tagContact');
       set('#contact h2', 'h2Contact');
