@@ -391,34 +391,16 @@
       margin-top: 80px;
       border-top: 1px solid rgba(255,255,255,0.06);
       padding: 48px 24px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
       font-size: 0.88rem;
-    }
-    .footer-inner {
-      display: flex;
-      gap: 48px;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-    .footer-brand {
-      flex: 1;
-      min-width: 200px;
-    }
-    .footer-logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--text);
     }
     .footer-brand p {
       color: var(--muted);
       margin-top: 8px;
       font-size: 0.85rem;
       line-height: 1.7;
-    }
-    .footer-cols {
-      display: flex;
-      gap: 48px;
-      flex-wrap: wrap;
     }
     .footer-col h4 {
       color: var(--text);
@@ -440,6 +422,7 @@
     }
     .footer-col ul a:hover { color: var(--text); }
     .footer-bottom {
+      grid-column: 1 / -1;
       border-top: 1px solid rgba(255,255,255,0.06);
       padding-top: 20px;
       display: flex;
@@ -451,8 +434,7 @@
       font-size: 0.78rem;
     }
     @media (max-width: 640px) {
-      .footer-inner { flex-direction: column; gap: 32px; }
-      .footer-cols { flex-direction: column; gap: 24px; }
+      .site-footer { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; text-align: center; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -613,35 +595,31 @@
     </section>
 
     <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="footer-logo">SenZon™</span>
-          <p>AI Operator for Hire. From idea to live product — without a development team.</p>
-        </div>
-        <div class="footer-cols">
-          <div class="footer-col">
-            <h4>Services</h4>
-            <ul>
-              <li><a href="/pricing.html#product-build">AI Product Build</a></li>
-              <li><a href="/pricing.html#digital-presence">Digital Presence</a></li>
-              <li><a href="/pricing.html#ai-systems">AI Systems &amp; Strategy</a></li>
-              <li><a href="/pricing.html#add-ons">Add-Ons</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/#how-it-works">How It Works</a></li>
-              <li><a href="/#why">Why SenZon™</a></li>
-              <li><a href="/#contact">Book a Call</a></li>
-            </ul>
-          </div>
-        </div>
+      <div class="footer-brand">
+        <div class="nav-logo" style="font-size:1.1rem;">SenZon<span style="color:var(--accent2)">™</span></div>
+        <p>AI Operator for Hire.<br>From idea to live product —<br>without a development team.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/pricing.html#product-build">AI Product Build</a></li>
+          <li><a href="/pricing.html#digital-presence">Digital Presence</a></li>
+          <li><a href="/pricing.html#ai-strategy">AI Systems &amp; Strategy</a></li>
+          <li><a href="/pricing.html#addons">Add-Ons</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#proof">Why SenZon™</a></li>
+          <li><a href="mailto:support@senzon.eu?subject=Discovery Call Request">Book a Call</a></li>
+        </ul>
       </div>
       <div class="footer-bottom">
         <span>© 2025 SenZon™ · Ditta Individuale Professionale · Italy</span>
-        <span>Built with unreasonable speed (the good kind) · support@senzon.eu</span>
+        <span>Built with unreasonable speed (the good kind) · <a href="mailto:support@senzon.eu">support@senzon.eu</a></span>
       </div>
     </footer>
   </div>
@@ -1095,9 +1073,6 @@
       const ctaLinks = document.querySelectorAll('#contact .btn');
       if (ctaLinks[0] && t.ctaBook) ctaLinks[0].textContent = t.ctaBook;
       if (ctaLinks[1] && t.ctaEnquiry) ctaLinks[1].textContent = t.ctaEnquiry;
-      // Footer
-      const footer = document.querySelector('footer');
-      if (footer) footer.innerHTML = t.footer + ' · <a href="mailto:support@senzon.eu">support@senzon.eu</a>';
     }
   </script>
   <script>
