@@ -51,9 +51,9 @@
         "SaaS Builder",
         "AI Automation",
         "Digital Presence",
-        "AI Systems and Strategy",
+        "Systems and Strategy",
         "PWA Development",
-        "AI Product Build"
+        "Product Build"
       ],
       "areaServed": [
         "Europe",
@@ -81,7 +81,7 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "AI Product Build",
+              "name": "Product Build",
               "description": "From idea to live MVP or SaaS product in 14 days"
             },
             "priceSpecification": {
@@ -109,7 +109,7 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "AI Systems and Strategy",
+              "name": "Systems and Strategy",
               "description": "Master documents, prompt libraries, and workflow automation"
             },
             "priceSpecification": {
@@ -135,7 +135,7 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    section[id], div[id] { scroll-margin-top: 72px; }
+    section[id], div[id] { scroll-margin-top: 80px; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #151528 0, #050509 55%);
@@ -149,7 +149,7 @@
     .page {
       max-width: 960px;
       margin: 0 auto;
-      padding: 56px 16px 64px;
+      padding: 24px 16px 64px;
     }
 
     /* Logo + glitch/ripple */
@@ -442,9 +442,109 @@
       * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
 
+    .urgency-bar {
+      position: relative;
+      background: rgba(10, 10, 22, 0.98);
+      border-bottom: 1px solid rgba(63,213,255,0.3);
+      padding: 8px 16px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .urgency-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent2);
+      display: inline-block;
+      animation: dotPulse 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(63,213,255,0.5); }
+      50% { opacity: 0.8; transform: scale(1.2); box-shadow: 0 0 0 5px rgba(63,213,255,0); }
+    }
+    .urgency-bar a {
+      color: var(--accent2);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .urgency-bar a:hover { text-decoration: underline; }
+    .tagline-three {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 6px auto 14px;
+      text-align: center;
+    }
+    .stat-bar {
+      display: inline-block;
+      margin: 0 auto 20px;
+      padding: 8px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(63,213,255,0.25);
+      background: rgba(63,213,255,0.05);
+      font-size: 0.9rem;
+      color: var(--text);
+      letter-spacing: 0.03em;
+    }
+    .stat-bar strong {
+      color: var(--accent2);
+      font-weight: 700;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .portfolio-card {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: radial-gradient(circle at top left, #1a1630 0, #0a0a14 55%);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(123,92,255,0.4);
+    }
+    .portfolio-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .portfolio-caption {
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .portfolio-caption a {
+      color: var(--accent2);
+      margin-left: 4px;
+      font-weight: 600;
+    }
+    @media (max-width: 640px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
+  <div class="urgency-bar">
+    <span class="urgency-dot"></span>
+    <span data-i18n="urgencyText">Currently accepting 3 new clients for April — <a href="#contact">Claim your spot</a></span>
+  </div>
   <nav>
     <a href="/" class="nav-logo">SenZon<span>™</span></a>
     <div class="nav-hamburger" onclick="this.nextElementSibling.classList.toggle('open')">
@@ -455,7 +555,8 @@
       <li><a href="#how">How It Works</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="mailto:support@senzon.eu?subject=Discovery Call Request" class="nav-cta">Book a Call</a></li>
+      <li><a href="/blog/" data-i18n="navBlog">Blog</a></li>
+      <li><a href="mailto:support@senzon.eu?subject=Discovery Call Request" class="nav-cta">Contact Us</a></li>
     </ul>
   </nav>
     <div class="bg-orb"></div>
@@ -469,18 +570,14 @@
 
     <header class="center">
       <h1 id="main-headline">AI Operator for Hire</h1>
+      <p class="tagline-three" data-i18n="taglineThree">Build. Launch. Profit.</p>
       <p class="sub" id="hero-sub">
   Most agencies take 3 months and €15,000.<br>
   SenZon™ takes 14 days — and a fraction of that.<br>
   <span style="color:var(--muted)">Because we build with AI, not headcount.</span>
 </p>
-      <div class="cta-row">
-        <button id="cta-primary" class="btn" onclick="document.getElementById(‘contact’).scrollIntoView({behavior:’smooth’})">
-  Get Your Product Live →
-</button>
-        <button id="cta-secondary" class="btn secondary" onclick="document.getElementById(‘services’).scrollIntoView({behavior:’smooth’})">
-  See What We Build →
-</button>
+      <div class="stat-bar">
+        <span data-i18n="stat1"><strong>14 days.</strong> From <strong>€1,500.</strong> Live <strong>Product.</strong></span>
       </div>
     </header>
 
@@ -555,7 +652,7 @@
           <p>AI-native process means faster builds, leaner teams, and a fraction of the traditional price.</p>
         </div>
       </div>
-      <p class="sub" style="margin-top:18px; color:var(--accent2); font-weight:600;">
+      <p class="sub" style="margin-top:18px; color:var(--accent2); font-weight:600; text-align:center;">
         Most people just don't know it yet.
       </p>
     </section>
@@ -565,7 +662,7 @@
       <h2>Three ways to work with SenZon™</h2>
       <div class="grid grid-3" style="margin-top:18px;">
         <div class="card">
-          <h3>🛠 AI Product Build</h3>
+          <h3>🛠 Product Build</h3>
           <p>From raw idea to live, revenue-generating product. SaaS, PWA, or MVP — deployed in 14 days.</p>
         </div>
         <div class="card">
@@ -573,12 +670,34 @@
           <p>Brand, website, PWA, SEO, and content system. Your business fully alive online.</p>
         </div>
         <div class="card">
-          <h3>🧠 AI Systems & Strategy</h3>
+          <h3>🧠 Systems & Strategy</h3>
           <p>Master docs, prompt libraries, workflow maps. The brain behind your operation.</p>
         </div>
       </div>
       <div style="text-align:center; margin-top:28px;">
-        <a href="/pricing.html" class="btn">See Full Pricing & Services →</a>
+        <a href="/pricing.html" class="btn">See Full Pricing & Services</a>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <span class="tag" data-i18n="tagPortfolio">Built by SenZon™</span>
+      <h2 data-i18n="h2Portfolio">We don't just build for clients.</h2>
+      <p class="sub" data-i18n="pPortfolio">These are products we built and shipped ourselves. Same process. Same speed. Yours next.</p>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <img src="postmio-preview.png" alt="PostMio – Built by SenZon™" />
+          <div class="portfolio-caption">
+            <span data-i18n="portfolioCaption1">Built by SenZon™ — live at</span>
+            <a href="https://postmio.com" target="_blank" rel="noopener">postmio.com</a>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img src="phantom-preview.png" alt="Phantom Sector – Built by SenZon™" />
+          <div class="portfolio-caption">
+            <span data-i18n="portfolioCaption2">Built by SenZon™ — live at</span>
+            <a href="https://phantomsector.com" target="_blank" rel="noopener">phantomsector.com</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -589,8 +708,7 @@
         Book a free 20-minute call. No pitch. No pressure.<br>Just clarity on whether we're the right fit.
       </p>
       <div class="cta-row" style="margin-top:20px;">
-        <a href="mailto:support@senzon.eu?subject=Discovery Call Request" class="btn">Book a Free 20-Min Call →</a>
-        <a href="mailto:support@senzon.eu?subject=Project Enquiry" class="btn secondary">See What We Build →</a>
+        <a href="mailto:support@senzon.eu?subject=Discovery Call Request" class="btn">Contact Us</a>
       </div>
     </section>
 
@@ -602,9 +720,9 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="/pricing.html#product-build">AI Product Build</a></li>
+          <li><a href="/pricing.html#product-build">Product Build</a></li>
           <li><a href="/pricing.html#digital-presence">Digital Presence</a></li>
-          <li><a href="/pricing.html#ai-strategy">AI Systems &amp; Strategy</a></li>
+          <li><a href="/pricing.html#ai-strategy">Systems &amp; Strategy</a></li>
           <li><a href="/pricing.html#addons">Add-Ons</a></li>
         </ul>
       </div>
@@ -614,7 +732,7 @@
           <li><a href="/">Home</a></li>
           <li><a href="/#how">How It Works</a></li>
           <li><a href="/#proof">Why SenZon™</a></li>
-          <li><a href="mailto:support@senzon.eu?subject=Discovery Call Request">Book a Call</a></li>
+          <li><a href="mailto:support@senzon.eu?subject=Discovery Call Request">Contact Us</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
@@ -724,8 +842,8 @@
       en: {
         heroPain: "Most agencies take 3 months and €15,000. SenZon™ takes 14 days — and a fraction of that.",
         heroSub: "Because we build with AI, not headcount.",
-        ctaPrimary: "Get Your Product Live →",
-        ctaSecondary: "See What We Build →",
+        ctaPrimary: "Get Your Product Live",
+        ctaSecondary: "See What We Build",
         tagProblem: "The Problem",
         h2Problem: "You have the idea. The agency has your money.",
         pProblem1: "You have the idea. You have the market insight. What you don't have is a development team — or the €50K to hire one.",
@@ -750,23 +868,31 @@
         pProofSub: "Most people just don't know it yet.",
         tagServices: "Services",
         h2Services: "Three ways to work with SenZon™",
-        h3Mvp: "🛠 AI Product Build", pMvp: "From raw idea to live, revenue-generating product. SaaS, PWA, or MVP — deployed in 14 days.",
+        h3Mvp: "🛠 Product Build", pMvp: "From raw idea to live, revenue-generating product. SaaS, PWA, or MVP — deployed in 14 days.",
         h3Marketing: "🌐 Digital Presence", pMarketing: "Brand, website, PWA, SEO, and content system. Your business fully alive online.",
-        h3Auto: "🧠 AI Systems & Strategy", pAuto: "Master docs, prompt libraries, workflow maps. The brain behind your operation.",
-        btnPricing: "See Full Pricing & Services →",
+        h3Auto: "🧠 Systems & Strategy", pAuto: "Master docs, prompt libraries, workflow maps. The brain behind your operation.",
+        btnPricing: "See Full Pricing & Services",
         tagContact: "Start",
         h2Contact: "Ready to stop planning and start shipping?",
         pContact: "Book a free 20-minute call. No pitch. No pressure. Just clarity on whether we're the right fit.",
-        ctaBook: "Book a Free 20-Min Call →",
-        ctaEnquiry: "See What We Build →",
-        navPricing: "Pricing", navBookCall: "Book a Call",
-        footer: "SenZon™ · AI Operator for Hire · Built with unreasonable speed (the good kind)."
+        ctaBook: "Contact Us",
+        ctaEnquiry: "See What We Build",
+        navPricing: "Pricing", navBlog: "Blog", navBookCall: "Contact Us",
+        footer: "SenZon™ · AI Operator for Hire · Built with unreasonable speed (the good kind).",
+        urgencyText: 'Currently accepting 3 new clients for April — <a href="#contact">Claim your spot</a>',
+        taglineThree: 'Build. Launch. Profit.',
+        stat1: '<strong>14 days.</strong> From <strong>€1,500.</strong> Live <strong>Product.</strong>',
+        tagPortfolio: "Built by SenZon™",
+        h2Portfolio: "We don't just build for clients.",
+        pPortfolio: "These are products we built and shipped ourselves. Same process. Same speed. Yours next.",
+        portfolioCaption1: "Built by SenZon™ — live at",
+        portfolioCaption2: "Built by SenZon™ — live at"
       },
       it: {
         heroPain: "Le agenzie ci mettono 3 mesi e €15.000. SenZon™ ci mette 14 giorni — e una frazione del costo.",
         heroSub: "Perché costruiamo con l'AI, non con il personale.",
-        ctaPrimary: "Porta il tuo Prodotto Live →",
-        ctaSecondary: "Scopri Cosa Costruiamo →",
+        ctaPrimary: "Porta il tuo Prodotto Live",
+        ctaSecondary: "Scopri Cosa Costruiamo",
         tagProblem: "Il Problema",
         h2Problem: "Hai l'idea. L'agenzia ha i tuoi soldi.",
         pProblem1: "Hai l'idea. Hai la visione del mercato. Quello che non hai è un team di sviluppo — o i €50K per assumerlo.",
@@ -791,23 +917,31 @@
         pProofSub: "La maggior parte delle persone non lo sa ancora.",
         tagServices: "Servizi",
         h2Services: "Tre modi di lavorare con SenZon™",
-        h3Mvp: "🛠 AI Product Build", pMvp: "Dall'idea grezza a un prodotto live e generatore di entrate. SaaS, PWA o MVP — deployato in 14 giorni.",
+        h3Mvp: "🛠 Product Build", pMvp: "Dall'idea grezza a un prodotto live e generatore di entrate. SaaS, PWA o MVP — deployato in 14 giorni.",
         h3Marketing: "🌐 Presenza Digitale", pMarketing: "Brand, sito, PWA, SEO e sistema di contenuti. La tua azienda completamente viva online.",
         h3Auto: "🧠 Sistemi AI & Strategia", pAuto: "Master doc, librerie di prompt, mappe di workflow. Il cervello dietro la tua operazione.",
-        btnPricing: "Vedi Prezzi & Servizi Completi →",
+        btnPricing: "Vedi Prezzi & Servizi Completi",
         tagContact: "Inizia",
         h2Contact: "Pronto a smettere di pianificare e iniziare a spedire?",
         pContact: "Prenota una call gratuita di 20 minuti. Nessun pitch. Nessuna pressione. Solo chiarezza su se siamo il fit giusto.",
-        ctaBook: "Prenota una Call Gratuita di 20 Min →",
-        ctaEnquiry: "Scopri Cosa Costruiamo →",
-        navPricing: "Prezzi", navBookCall: "Prenota una Call",
-        footer: "SenZon™ · Operatore AI · Costruito con velocità irragionevole (nel senso buono)."
+        ctaBook: "Prenota una Call Gratuita di 20 Min",
+        ctaEnquiry: "Scopri Cosa Costruiamo",
+        navPricing: "Prezzi", navBlog: "Blog", navBookCall: "Prenota una Call",
+        footer: "SenZon™ · Operatore AI · Costruito con velocità irragionevole (nel senso buono).",
+        urgencyText: 'Accettiamo 3 nuovi clienti per aprile — <a href="#contact">Prenota il tuo posto</a>',
+        taglineThree: 'Costruisci. Lancia. Guadagna.',
+        stat1: '<strong>14 giorni.</strong> Da <strong>€1.500.</strong> Prodotto live.',
+        tagPortfolio: "Costruito da SenZon™",
+        h2Portfolio: "Non costruiamo solo per i clienti.",
+        pPortfolio: "Questi sono prodotti che abbiamo costruito e lanciato noi stessi. Stesso processo. Stessa velocità. Il tuo è il prossimo.",
+        portfolioCaption1: "Costruito da SenZon™ — live su",
+        portfolioCaption2: "Costruito da SenZon™ — live su"
       },
       es: {
         heroPain: "Las agencias tardan 3 meses y €15.000. SenZon™ tarda 14 días — y una fracción del coste.",
         heroSub: "Porque construimos con IA, no con plantilla.",
-        ctaPrimary: "Lanza tu Producto →",
-        ctaSecondary: "Ver Qué Construimos →",
+        ctaPrimary: "Lanza tu Producto",
+        ctaSecondary: "Ver Qué Construimos",
         tagProblem: "El Problema",
         h2Problem: "Tienes la idea. La agencia tiene tu dinero.",
         pProblem1: "Tienes la idea. Tienes la visión del mercado. Lo que no tienes es un equipo de desarrollo — ni los €50K para contratarlo.",
@@ -832,23 +966,31 @@
         pProofSub: "La mayoría de la gente aún no lo sabe.",
         tagServices: "Servicios",
         h2Services: "Tres formas de trabajar con SenZon™",
-        h3Mvp: "🛠 AI Product Build", pMvp: "De idea en bruto a producto en vivo. SaaS, PWA o MVP — desplegado en 14 días.",
+        h3Mvp: "🛠 Product Build", pMvp: "De idea en bruto a producto en vivo. SaaS, PWA o MVP — desplegado en 14 días.",
         h3Marketing: "🌐 Presencia Digital", pMarketing: "Marca, web, PWA, SEO y sistema de contenidos. Tu negocio completamente vivo online.",
         h3Auto: "🧠 Sistemas IA & Estrategia", pAuto: "Docs maestros, bibliotecas de prompts, mapas de workflows. El cerebro detrás de tu operación.",
-        btnPricing: "Ver Precios & Servicios Completos →",
+        btnPricing: "Ver Precios & Servicios Completos",
         tagContact: "Empieza",
         h2Contact: "¿Listo para dejar de planificar y empezar a lanzar?",
         pContact: "Reserva una llamada gratuita de 20 minutos. Sin pitch. Sin presión. Solo claridad sobre si encajamos bien.",
-        ctaBook: "Reserva una Llamada Gratuita de 20 Min →",
-        ctaEnquiry: "Ver Qué Construimos →",
-        navPricing: "Precios", navBookCall: "Reserva una Llamada",
-        footer: "SenZon™ · Operador IA · Construido con velocidad irrazonable (del bueno)."
+        ctaBook: "Reserva una Llamada Gratuita de 20 Min",
+        ctaEnquiry: "Ver Qué Construimos",
+        navPricing: "Precios", navBlog: "Blog", navBookCall: "Reserva una Llamada",
+        footer: "SenZon™ · Operador IA · Construido con velocidad irrazonable (del bueno).",
+        urgencyText: 'Aceptamos 3 nuevos clientes para abril — <a href="#contact">Reserva tu lugar</a>',
+        taglineThree: 'Construye. Lanza. Gana.',
+        stat1: '<strong>14 días.</strong> Desde <strong>€1.500.</strong> Producto live.',
+        tagPortfolio: "Construido por SenZon™",
+        h2Portfolio: "No solo construimos para clientes.",
+        pPortfolio: "Estos son productos que construimos y lanzamos nosotros mismos. Mismo proceso. Misma velocidad. El tuyo es el siguiente.",
+        portfolioCaption1: "Construido por SenZon™ — en vivo en",
+        portfolioCaption2: "Construido por SenZon™ — en vivo en"
       },
       fr: {
         heroPain: "Les agences prennent 3 mois et €15 000. SenZon™ prend 14 jours — et une fraction du prix.",
         heroSub: "Parce qu'on construit avec l'IA, pas avec des effectifs.",
-        ctaPrimary: "Mettez votre Produit en Ligne →",
-        ctaSecondary: "Voir ce qu'on Construit →",
+        ctaPrimary: "Mettez votre Produit en Ligne",
+        ctaSecondary: "Voir ce qu'on Construit",
         tagProblem: "Le Problème",
         h2Problem: "Vous avez l'idée. L'agence a votre argent.",
         pProblem1: "Vous avez l'idée. Vous avez la vision du marché. Ce que vous n'avez pas, c'est une équipe de développement — ni les €50K pour en embaucher une.",
@@ -873,23 +1015,31 @@
         pProofSub: "La plupart des gens ne le savent pas encore.",
         tagServices: "Services",
         h2Services: "Trois façons de travailler avec SenZon™",
-        h3Mvp: "🛠 AI Product Build", pMvp: "De l'idée brute au produit en ligne. SaaS, PWA ou MVP — déployé en 14 jours.",
+        h3Mvp: "🛠 Product Build", pMvp: "De l'idée brute au produit en ligne. SaaS, PWA ou MVP — déployé en 14 jours.",
         h3Marketing: "🌐 Présence Digitale", pMarketing: "Marque, site, PWA, SEO et système de contenu. Votre business pleinement vivant en ligne.",
         h3Auto: "🧠 Systèmes IA & Stratégie", pAuto: "Docs maîtres, bibliothèques de prompts, cartographies de workflows. Le cerveau derrière votre opération.",
-        btnPricing: "Voir les Tarifs & Services Complets →",
+        btnPricing: "Voir les Tarifs & Services Complets",
         tagContact: "Commencer",
         h2Contact: "Prêt à arrêter de planifier et à commencer à livrer ?",
         pContact: "Réservez un appel gratuit de 20 minutes. Pas de pitch. Pas de pression. Juste de la clarté sur notre adéquation.",
-        ctaBook: "Réserver un Appel Gratuit de 20 Min →",
-        ctaEnquiry: "Voir ce qu'on Construit →",
-        navPricing: "Tarifs", navBookCall: "Réserver un Appel",
-        footer: "SenZon™ · Opérateur IA · Construit à une vitesse déraisonnable (dans le bon sens)."
+        ctaBook: "Réserver un Appel Gratuit de 20 Min",
+        ctaEnquiry: "Voir ce qu'on Construit",
+        navPricing: "Tarifs", navBlog: "Blog", navBookCall: "Réserver un Appel",
+        footer: "SenZon™ · Opérateur IA · Construit à une vitesse déraisonnable (dans le bon sens).",
+        urgencyText: 'Nous acceptons 3 nouveaux clients pour avril — <a href="#contact">Réservez votre place</a>',
+        taglineThree: 'Construis. Lance. Profite.',
+        stat1: '<strong>14 jours.</strong> À partir de <strong>€1 500.</strong> Produit en ligne.',
+        tagPortfolio: "Construit par SenZon™",
+        h2Portfolio: "On ne construit pas seulement pour des clients.",
+        pPortfolio: "Ce sont des produits que nous avons construits et lancés nous-mêmes. Même processus. Même vitesse. Le vôtre est le prochain.",
+        portfolioCaption1: "Construit par SenZon™ — en ligne sur",
+        portfolioCaption2: "Construit par SenZon™ — en ligne sur"
       },
       de: {
         heroPain: "Agenturen brauchen 3 Monate und €15.000. SenZon™ braucht 14 Tage — und einen Bruchteil davon.",
         heroSub: "Weil wir mit KI bauen, nicht mit Köpfen.",
-        ctaPrimary: "Dein Produkt live bringen →",
-        ctaSecondary: "Sehen was wir bauen →",
+        ctaPrimary: "Dein Produkt live bringen",
+        ctaSecondary: "Sehen was wir bauen",
         tagProblem: "Das Problem",
         h2Problem: "Du hast die Idee. Die Agentur hat dein Geld.",
         pProblem1: "Du hast die Idee. Du hast das Marktverständnis. Was du nicht hast, ist ein Entwicklungsteam — oder die €50K, um eines einzustellen.",
@@ -914,23 +1064,31 @@
         pProofSub: "Die meisten wissen es noch nicht.",
         tagServices: "Leistungen",
         h2Services: "Drei Wege mit SenZon™ zu arbeiten",
-        h3Mvp: "🛠 AI Product Build", pMvp: "Von der rohen Idee zum Live-Produkt. SaaS, PWA oder MVP — deployed in 14 Tagen.",
+        h3Mvp: "🛠 Product Build", pMvp: "Von der rohen Idee zum Live-Produkt. SaaS, PWA oder MVP — deployed in 14 Tagen.",
         h3Marketing: "🌐 Digitale Präsenz", pMarketing: "Marke, Website, PWA, SEO und Content-System. Dein Business vollständig online am Leben.",
         h3Auto: "🧠 KI-Systeme & Strategie", pAuto: "Master-Docs, Prompt-Bibliotheken, Workflow-Maps. Das Gehirn hinter deiner Operation.",
-        btnPricing: "Vollständige Preise & Leistungen →",
+        btnPricing: "Vollständige Preise & Leistungen",
         tagContact: "Starten",
         h2Contact: "Bereit aufzuhören zu planen und anzufangen zu liefern?",
         pContact: "Buche ein kostenloses 20-Minuten-Gespräch. Kein Pitch. Kein Druck. Nur Klarheit, ob wir zusammenpassen.",
-        ctaBook: "Kostenloses 20-Min-Gespräch Buchen →",
-        ctaEnquiry: "Sehen Was Wir Bauen →",
-        navPricing: "Preise", navBookCall: "Gespräch Buchen",
-        footer: "SenZon™ · KI-Operator · Gebaut mit unvernünftiger Geschwindigkeit (die gute Art)."
+        ctaBook: "Kostenloses 20-Min-Gespräch Buchen",
+        ctaEnquiry: "Sehen Was Wir Bauen",
+        navPricing: "Preise", navBlog: "Blog", navBookCall: "Gespräch Buchen",
+        footer: "SenZon™ · KI-Operator · Gebaut mit unvernünftiger Geschwindigkeit (die gute Art).",
+        urgencyText: 'Wir nehmen 3 neue Kunden für April auf — <a href="#contact">Sicher dir deinen Platz</a>',
+        taglineThree: 'Bauen. Launchen. Verdienen.',
+        stat1: '<strong>14 Tage.</strong> Ab <strong>€1.500.</strong> Live-Produkt.',
+        tagPortfolio: "Gebaut von SenZon™",
+        h2Portfolio: "Wir bauen nicht nur für Kunden.",
+        pPortfolio: "Das sind Produkte, die wir selbst gebaut und gelauncht haben. Gleicher Prozess. Gleiche Geschwindigkeit. Deins als Nächstes.",
+        portfolioCaption1: "Gebaut von SenZon™ — live auf",
+        portfolioCaption2: "Gebaut von SenZon™ — live auf"
       },
       pt: {
         heroPain: "As agências demoram 3 meses e €15.000. SenZon™ demora 14 dias — e uma fração do custo.",
         heroSub: "Porque construímos com IA, não com pessoas.",
-        ctaPrimary: "Coloca o teu Produto no Ar →",
-        ctaSecondary: "Ver o que Construímos →",
+        ctaPrimary: "Coloca o teu Produto no Ar",
+        ctaSecondary: "Ver o que Construímos",
         tagProblem: "O Problema",
         h2Problem: "Tens a ideia. A agência tem o teu dinheiro.",
         pProblem1: "Tens a ideia. Tens a visão do mercado. O que não tens é uma equipa de desenvolvimento — nem os €50K para contratar uma.",
@@ -955,23 +1113,31 @@
         pProofSub: "A maioria das pessoas ainda não sabe.",
         tagServices: "Serviços",
         h2Services: "Três formas de trabalhar com a SenZon™",
-        h3Mvp: "🛠 AI Product Build", pMvp: "Da ideia bruta ao produto vivo. SaaS, PWA ou MVP — implantado em 14 dias.",
+        h3Mvp: "🛠 Product Build", pMvp: "Da ideia bruta ao produto vivo. SaaS, PWA ou MVP — implantado em 14 dias.",
         h3Marketing: "🌐 Presença Digital", pMarketing: "Marca, site, PWA, SEO e sistema de conteúdo. O teu negócio totalmente vivo online.",
         h3Auto: "🧠 Sistemas de IA & Estratégia", pAuto: "Docs mestres, bibliotecas de prompts, mapas de workflow. O cérebro por trás da tua operação.",
-        btnPricing: "Ver Preços & Serviços Completos →",
+        btnPricing: "Ver Preços & Serviços Completos",
         tagContact: "Começar",
         h2Contact: "Pronto para parar de planejar e começar a entregar?",
         pContact: "Agende uma call gratuita de 20 minutos. Sem pitch. Sem pressão. Só clareza sobre se somos o fit certo.",
-        ctaBook: "Agendar Call Gratuita de 20 Min →",
-        ctaEnquiry: "Ver o que Construímos →",
-        navPricing: "Preços", navBookCall: "Agendar uma Call",
-        footer: "SenZon™ · Operador IA · Construído com velocidade absurda (do jeito bom)."
+        ctaBook: "Agendar Call Gratuita de 20 Min",
+        ctaEnquiry: "Ver o que Construímos",
+        navPricing: "Preços", navBlog: "Blog", navBookCall: "Agendar uma Call",
+        footer: "SenZon™ · Operador IA · Construído com velocidade absurda (do jeito bom).",
+        urgencyText: 'Aceitamos 3 novos clientes para abril — <a href="#contact">Garante o teu lugar</a>',
+        taglineThree: 'Constrói. Lança. Lucra.',
+        stat1: '<strong>14 dias.</strong> A partir de <strong>€1.500.</strong> Produto live.',
+        tagPortfolio: "Construído pela SenZon™",
+        h2Portfolio: "Não construímos apenas para clientes.",
+        pPortfolio: "Estes são produtos que construímos e lançámos nós próprios. Mesmo processo. Mesma velocidade. O teu é o próximo.",
+        portfolioCaption1: "Construído pela SenZon™ — no ar em",
+        portfolioCaption2: "Construído pela SenZon™ — no ar em"
       },
       pl: {
         heroPain: "Agencje potrzebują 3 miesięcy i €15 000. SenZon™ potrzebuje 14 dni — i ułamka tego kosztu.",
         heroSub: "Bo budujemy z AI, nie z ludźmi.",
-        ctaPrimary: "Uruchom swój Produkt →",
-        ctaSecondary: "Zobacz co Budujemy →",
+        ctaPrimary: "Uruchom swój Produkt",
+        ctaSecondary: "Zobacz co Budujemy",
         tagProblem: "Problem",
         h2Problem: "Masz pomysł. Agencja ma twoje pieniądze.",
         pProblem1: "Masz pomysł. Masz wyczucie rynku. Czego nie masz, to zespołu programistów — ani €50K, żeby go zatrudnić.",
@@ -996,17 +1162,25 @@
         pProofSub: "Większość ludzi jeszcze o tym nie wie.",
         tagServices: "Usługi",
         h2Services: "Trzy sposoby pracy z SenZon™",
-        h3Mvp: "🛠 AI Product Build", pMvp: "Od surowego pomysłu do żywego produktu. SaaS, PWA lub MVP — wdrożony w 14 dni.",
+        h3Mvp: "🛠 Product Build", pMvp: "Od surowego pomysłu do żywego produktu. SaaS, PWA lub MVP — wdrożony w 14 dni.",
         h3Marketing: "🌐 Obecność Cyfrowa", pMarketing: "Marka, strona, PWA, SEO i system treści. Twój biznes w pełni żywy online.",
         h3Auto: "🧠 Systemy AI & Strategia", pAuto: "Master doki, biblioteki promptów, mapy procesów. Mózg stojący za Twoją operacją.",
-        btnPricing: "Zobacz Pełne Ceny & Usługi →",
+        btnPricing: "Zobacz Pełne Ceny & Usługi",
         tagContact: "Zacznij",
         h2Contact: "Gotowy przestać planować i zacząć wysyłać?",
         pContact: "Zarezerwuj bezpłatną 20-minutową rozmowę. Żadnego pitchu. Żadnej presji. Tylko jasność, czy jesteśmy właściwym dopasowaniem.",
-        ctaBook: "Zarezerwuj Bezpłatną 20-Min Rozmowę →",
-        ctaEnquiry: "Zobacz co Budujemy →",
-        navPricing: "Cennik", navBookCall: "Zarezerwuj Rozmowę",
-        footer: "SenZon™ · Operator AI · Zbudowane z nieracjonalną prędkością (tą dobrą)."
+        ctaBook: "Zarezerwuj Bezpłatną 20-Min Rozmowę",
+        ctaEnquiry: "Zobacz co Budujemy",
+        navPricing: "Cennik", navBlog: "Blog", navBookCall: "Zarezerwuj Rozmowę",
+        footer: "SenZon™ · Operator AI · Zbudowane z nieracjonalną prędkością (tą dobrą).",
+        urgencyText: 'Przyjmujemy 3 nowych klientów na kwiecień — <a href="#contact">Zarezerwuj miejsce</a>',
+        taglineThree: 'Buduj. Uruchamiaj. Zarabiaj.',
+        stat1: '<strong>14 dni.</strong> Od <strong>€1 500.</strong> Gotowy produkt.',
+        tagPortfolio: "Zbudowane przez SenZon™",
+        h2Portfolio: "Nie budujemy tylko dla klientów.",
+        pPortfolio: "To są produkty, które sami zbudowaliśmy i wysłaliśmy. Ten sam proces. Ta sama prędkość. Twój następny.",
+        portfolioCaption1: "Zbudowane przez SenZon™ — na żywo na",
+        portfolioCaption2: "Zbudowane przez SenZon™ — na żywo na"
       }
     };
 
@@ -1065,7 +1239,8 @@
       if (navItems[1]) navItems[1].textContent = t.tagHow;
       if (navItems[2]) navItems[2].textContent = t.tagServices;
       if (navItems[3]) navItems[3].textContent = t.navPricing;
-      if (navItems[4]) navItems[4].textContent = t.navBookCall;
+      if (navItems[4]) navItems[4].textContent = t.navBlog;
+      if (navItems[5]) navItems[5].textContent = t.navBookCall;
       // Contact
       set('#contact .tag', 'tagContact');
       set('#contact h2', 'h2Contact');
@@ -1073,6 +1248,19 @@
       const ctaLinks = document.querySelectorAll('#contact .btn');
       if (ctaLinks[0] && t.ctaBook) ctaLinks[0].textContent = t.ctaBook;
       if (ctaLinks[1] && t.ctaEnquiry) ctaLinks[1].textContent = t.ctaEnquiry;
+      // Portfolio
+      set('#portfolio .tag', 'tagPortfolio');
+      set('#portfolio h2', 'h2Portfolio');
+      set('#portfolio p.sub', 'pPortfolio');
+      const captions = document.querySelectorAll('.portfolio-caption span');
+      if (captions[0] && t.portfolioCaption1) captions[0].textContent = t.portfolioCaption1;
+      if (captions[1] && t.portfolioCaption2) captions[1].textContent = t.portfolioCaption2;
+      // New elements
+      const urgencyEl = document.querySelector('.urgency-bar span[data-i18n="urgencyText"]');
+      if (urgencyEl && t.urgencyText) urgencyEl.innerHTML = t.urgencyText;
+      set('.tagline-three', 'taglineThree');
+      const statEl = document.querySelector('.stat-bar span');
+      if (statEl && t.stat1) statEl.innerHTML = t.stat1;
     }
   </script>
   <script>
