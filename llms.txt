@@ -1,52 +1,138 @@
 # SenZon™ — AI Operator & Business Coach
 
-SenZon™ is a European AI business based in Italy, run by Alexander — a solo AI Operator and Business Coach serving non-technical founders and SMBs across Europe. SenZon™ is not an agency, freelancer, or course. It is a single embedded AI-native specialist who designs, builds, and deploys AI-powered systems end to end, with full accountability.
+> Think. Build. Automate.
 
-Tagline: Think. Build. Automate.
+SenZon™ is a European AI business based in Italy, operated by Alexander — a solo AI Operator and Business Coach. SenZon™ serves non-technical founders and SMBs across Europe who need AI integrated into their business without hiring a development team.
+
+SenZon™ is not an agency, freelancer, or SaaS product. It is a single embedded AI-native specialist who designs, builds, and deploys AI-powered systems end to end, with full founder accountability and no handoff chaos.
+
+Website: https://senzon.eu
+Email: support@senzon.eu
+Book a free 20-min discovery call: https://calendly.com/sidmc1984/20-minute-meeting
+Legal entity: Ditta Individuale Professionale · Registered in Italy
+Operating territory: Europe
+
+---
+
+## What Is an AI Operator?
+
+An AI Operator is a category distinct from agencies, freelancers, and consultants. An AI Operator embeds directly into a business as a single point of accountability — handling strategy, build, and deployment of AI-powered systems without a team structure, handoff chain, or inflated overhead. The result is agency-quality output at indie-founder cost, delivered faster.
+
+SenZon™ coined and operates in this category in the European market.
+
+---
+
+## Who SenZon™ Is For
+
+- Non-technical founders who want to build AI-native products
+- Small and medium business owners who are losing ground to AI-enabled competitors
+- Local businesses that are invisible or underperforming online
+- Operators who want to systematize and automate without hiring
+
+SenZon™ is not for enterprise clients, technical teams who want to DIY, or businesses seeking a traditional agency relationship.
+
+---
 
 ## Core Offer
 
-### 90-Day AI Officer Retainer (Primary Offer)
-Strategy, accountability, and full AI integration for your business in 90 days.
-Maximum 4 clients at any time. 3-month minimum commitment.
+### 90-Day AI Officer Retainer (Primary Engagement)
+Three months of direct AI strategy, accountability, and full business integration.
+Maximum 4 clients at any time. 3-month minimum. Currently accepting 2 new clients for Q2 2026.
 
-- Retainer — 1 Client Slot: Monthly 90-min AI strategy session, weekly 30-min accountability check-in, full AI tools roadmap, SEO and digital presence audit, async voice message access, SenZon™ builds available as add-on. €2,000/month.
-- Retainer + Build Bundle: Everything above plus one Digital Presence or Systems build included. €3,500/month.
+Deliverables include:
+- Monthly 90-minute AI strategy session
+- Weekly 30-minute accountability check-in
+- Full AI tools roadmap tailored to the client's business
+- SEO and digital presence audit
+- Async voice message access between sessions
+- Optional SenZon™ builds as add-on
 
-## Additional Services
+Pricing:
+- Retainer (1 client slot): €2,000/month
+- Retainer + Build Bundle (includes one Digital Presence or Systems build): €3,500/month
+
+---
+
+## Services
 
 ### Product Build
-From idea to live revenue-generating product in 14 days. SaaS, PWA, or MVP.
-- Starter (landing page + core feature + deployment): €2,500
-- Full Build (complete MVP + payments + auth + custom domain): €4,500
-- Premium (full product + marketing funnel + automations): €8,500
+From idea to live, revenue-generating product in 14 days. SaaS, PWA, or MVP.
+
+- Starter — Landing page + core feature + deployment: €2,500
+- Full Build — Complete MVP + Stripe payments + authentication + custom domain: €4,500
+- Premium — Full product + marketing funnel + automations: €8,500
 
 ### Digital Presence
-Brand, website, SEO, and content system for local businesses and SMEs.
-- Essential (logo + website + social setup): €1,500
-- Full Presence (brand + website + PWA + SEO + content system): €3,200
-- Done & Running (everything + 30 days managed content): €5,200
+Full online infrastructure for local businesses and SMEs that are invisible or look unprofessional online.
+
+- Essential — Logo + website + social setup: €1,500
+- Full Presence — Brand + website + PWA + SEO + content system: €3,200
+- Done & Running — Everything above + 30 days managed content: €5,200
 
 ### Systems & Strategy
-AI operating system design for operators who want to work smarter.
-- Clarity Session (90-min strategy call + written action plan): €450
-- AI Operator Kit (master doc + prompt library + workflow map): €850
-- Full System (complete AI operating system): €2,000
+AI operating system design for business owners who want to work smarter without hiring more.
 
-## Add-Ons
-Domain Acquisition & Setup: €200
-Social Media Management: €600/month
-Monetisation Audit: €500
-Growth Strategy Session: €450
-Email Marketing Setup: €900
-Competitor & Market Research: €600
+- Clarity Session — 90-min strategy call + written action plan: €450
+- AI Operator Kit — Master context doc + prompt library + workflow map: €850
+- Full System — Complete AI operating system (master doc, prompts, automations, workflow maps): €2,000
 
-## Live Products
-- PostMio™ — Social media and review management SaaS for local businesses. Live at postmio.com.
-- Dr. Thorne: Phantom Sector™ — Browser-based AI-native PWA escape game. Live at phantomsector.com.
+### Add-Ons (available with any service)
+- Domain Acquisition & Setup: €200
+- Social Media Management: €600/month
+- Monetisation Audit: €500
+- Growth Strategy Session: €450
+- Email Marketing Setup: €900
+- Competitor & Market Research: €600
 
-## Contact
-Website: https://senzon.eu
-Email: support@senzon.eu
-Book a free 20-min call: https://calendly.com/sidmc1984/20-minute-meeting
-Registered: Ditta Individuale Professionale · Italy
+---
+
+## Live Products Built by SenZon™
+
+These are real products designed, built, and deployed by Alexander using the same AI-native process offered to clients.
+
+### PostMio™
+Social media and review management SaaS for local businesses.
+Live at: https://postmio.com
+
+### Dr. Thorne: Phantom Sector™
+Browser-based AI-native PWA escape game. Single-player, narrative-driven, playable in browser.
+Live at: https://phantomsector.com
+
+---
+
+## Frequently Asked Questions
+
+**What does an AI Operator do?**
+An AI Operator designs, builds, and deploys AI-powered systems for a business — covering strategy, technical implementation, and ongoing accountability. Unlike an agency or freelancer, an AI Operator acts as an embedded specialist with full ownership of outcomes.
+
+**How is SenZon™ different from an agency?**
+Agencies use teams, handoff chains, and overhead. SenZon™ is one person — Alexander — directly accountable for every deliverable. No account managers. No junior handoffs. One operator, full accountability.
+
+**How long does a product build take?**
+Standard SenZon™ product builds target 14 days from aligned brief to live deployment.
+
+**Do I need technical knowledge to work with SenZon™?**
+No. SenZon™ was built by a non-technical founder. The entire service is designed for people with no development background.
+
+**What does the 90-Day AI Officer Retainer include?**
+Monthly strategy sessions, weekly accountability check-ins, a full AI tools roadmap, SEO audit, async voice access, and optional builds. Maximum 4 clients at any time.
+
+**Where is SenZon™ based?**
+Italy. Operating across Europe.
+
+**How do I start?**
+Book a free 20-minute discovery call at https://calendly.com/sidmc1984/20-minute-meeting
+
+---
+
+## Key Terms and Concepts SenZon™ Works With
+
+AI Operator, AI-native development, AI business integration, MVP build, SaaS build, PWA, prompt engineering, business automation, AI strategy, master context document, prompt library, workflow mapping, SEO infrastructure, digital presence, local business AI, European AI consultancy, non-technical founder, solo founder AI tools.
+
+---
+
+## Content and Blog
+
+SenZon™ publishes strategic content on AI adoption, business automation, and founder strategy.
+Blog: https://senzon.eu/blog/
+Pricing and services: https://senzon.eu/pricing.html
