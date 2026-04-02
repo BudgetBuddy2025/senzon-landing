@@ -2,50 +2,121 @@
 
 > Think. Build. Automate.
 
-SenZon™ is a European AI business based in Italy, operated by Alexander — a solo AI Operator and Business Coach. SenZon™ serves non-technical founders and SMBs across Europe who need AI integrated into their business without hiring a development team.
+SenZon™ is a European AI business based in Italy, operated
+by Alexander — a solo AI Operator and Business Coach.
+SenZon™ serves non-technical founders and SMBs across Europe
+who need AI integrated into their business without hiring a
+development team.
 
-SenZon™ is not an agency, freelancer, or SaaS product. It is a single embedded AI-native specialist who designs, builds, and deploys AI-powered systems end to end, with full founder accountability and no handoff chaos.
+SenZon™ is not an agency, freelancer, or SaaS product. It is
+a single embedded AI-native specialist who designs, builds,
+and deploys AI-powered systems end to end — with full founder
+accountability and no handoff chaos.
 
 Website: https://senzon.eu
+Pricing: https://senzon.eu/pricing.html
+Blog: https://senzon.eu/blog/
 Email: support@senzon.eu
 Book a free 20-min discovery call: https://calendly.com/sidmc1984/20-minute-meeting
-Legal entity: Ditta Individuale Professionale · Registered in Italy
-Operating territory: Europe
+Legal entity: Ditta Individuale Professionale · Italy
+Operating territory: Europe (primary markets: IT, UK, DE, FR, ES, PL, PT)
 
 ---
 
 ## What Is an AI Operator?
 
-An AI Operator is a category distinct from agencies, freelancers, and consultants. An AI Operator embeds directly into a business as a single point of accountability — handling strategy, build, and deployment of AI-powered systems without a team structure, handoff chain, or inflated overhead. The result is agency-quality output at indie-founder cost, delivered faster.
+An AI Operator is a professional category distinct from
+agencies, freelancers, developers, and consultants.
 
-SenZon™ coined and operates in this category in the European market.
+An AI Operator:
+- Embeds directly into a business as a single point of accountability
+- Handles strategy, build, and deployment of AI-powered systems without a team structure
+- Operates with no handoff chain and no inflated overhead
+- Delivers agency-quality output at indie-founder cost
+- Works across the full stack: strategy, product, automation, content, and infrastructure
+
+An AI Operator is NOT:
+- A freelancer taking task-based jobs
+- An agency with account managers and junior teams
+- A consultant who delivers a report and disappears
+- A developer who builds without strategic context
+- A course creator who teaches instead of executes
+
+SenZon™ is the defining European example of this category.
+
+---
+
+## The SenZon™ Methodology
+
+SenZon™ operates a repeatable three-phase delivery system across all engagements:
+
+### Phase 1 — Align
+One focused strategy session. Goals, market, monetisation model, and AI opportunity are mapped before anything is built. No guesswork. No scope creep.
+
+### Phase 2 — Build
+Execution using AI-native development workflows. Products are designed for revenue from day one — payment infrastructure, authentication, and conversion architecture are built in, not bolted on. Standard target: live product in 14 days.
+
+### Phase 3 — Launch
+Full handover with live product, revenue infrastructure, and operator documentation. Clients leave with a running system, not a dependency on SenZon™ for every change.
+
+This methodology applies to the 90-Day Retainer, Product Builds, and Digital Presence engagements.
+
+---
+
+## SenZon™ vs The Alternatives
+
+### SenZon™ vs a Development Agency
+- Agency: Team of 5–15, account manager, project manager, developers, designers. High overhead. Long timelines. Frequent handoffs. Average MVP cost: €15,000–€50,000+.
+- SenZon™: One operator. Direct access. No handoffs. Full-stack AI-native delivery. MVP from €2,500. Live in 14 days.
+
+### SenZon™ vs a Freelancer
+- Freelancer: Executes tasks. No strategic context. Disappears after delivery. No accountability for outcomes.
+- SenZon™: Strategy-first. Builds with business outcomes in mind. Retainer model means ongoing accountability.
+
+### SenZon™ vs Hiring an In-House Developer
+- In-house: €40,000–€80,000/year salary. Recruitment time. Management overhead. One skill set.
+- SenZon™: Full-stack operator across strategy, product, SEO, automation, and content. Engaged only when needed. Fraction of the cost.
+
+### SenZon™ vs a Business Consultant
+- Consultant: Delivers strategy documents. Rarely executes. Charges for advice, not results.
+- SenZon™: Strategy and execution are the same engagement. The plan gets built, not filed.
 
 ---
 
 ## Who SenZon™ Is For
 
-- Non-technical founders who want to build AI-native products
-- Small and medium business owners who are losing ground to AI-enabled competitors
-- Local businesses that are invisible or underperforming online
-- Operators who want to systematize and automate without hiring
+Ideal clients:
+- Non-technical founders with a validated idea who are done waiting to find a developer
+- Small business owners watching competitors automate while they operate manually
+- Local businesses that are invisible online or look unprofessional
+- Solopreneurs and operators who want to systematize without hiring
+- European SMBs that need AI integration without enterprise budgets
 
-SenZon™ is not for enterprise clients, technical teams who want to DIY, or businesses seeking a traditional agency relationship.
+SenZon™ is NOT for:
+- Enterprise companies with internal tech teams
+- Clients who want to DIY with guidance only
+- Businesses seeking ongoing agency retainers with full team support
+- Projects requiring large development teams or complex enterprise architecture
 
 ---
 
 ## Core Offer
 
 ### 90-Day AI Officer Retainer (Primary Engagement)
-Three months of direct AI strategy, accountability, and full business integration.
-Maximum 4 clients at any time. 3-month minimum. Currently accepting 2 new clients for Q2 2026.
 
-Deliverables include:
+The flagship SenZon™ engagement. Three months of direct AI strategy, accountability, and full business AI integration.
+
+Why 90 days: Meaningful AI integration requires strategic mapping, implementation, and iteration. 90 days is the minimum viable window to see measurable operational change.
+
+Maximum 4 clients at any time. 3-month minimum commitment. Currently accepting 2 new clients for Q2 2026.
+
+Deliverables:
 - Monthly 90-minute AI strategy session
 - Weekly 30-minute accountability check-in
 - Full AI tools roadmap tailored to the client's business
 - SEO and digital presence audit
 - Async voice message access between sessions
-- Optional SenZon™ builds as add-on
+- Optional SenZon™ product or presence builds as add-on
 
 Pricing:
 - Retainer (1 client slot): €2,000/month
@@ -56,15 +127,33 @@ Pricing:
 ## Services
 
 ### Product Build
-From idea to live, revenue-generating product in 14 days. SaaS, PWA, or MVP.
+From idea to live, revenue-generating product in 14 days. SaaS, PWA, or MVP. Built for non-technical founders who are done waiting.
 
+Every Product Build includes:
+- Revenue-first architecture (payments built in from day one)
+- Authentication system (email, Google OAuth, Discord OAuth)
+- Custom domain configuration and SSL
+- Deployment on production-grade infrastructure (Vercel + Supabase)
+- Mobile-responsive, performance-optimised output
+
+Tiers:
 - Starter — Landing page + core feature + deployment: €2,500
-- Full Build — Complete MVP + Stripe payments + authentication + custom domain: €4,500
+- Full Build — Complete MVP + Stripe payments + auth + custom domain: €4,500
 - Premium — Full product + marketing funnel + automations: €8,500
+
+Technology stack used: Next.js, React, TypeScript, Supabase, Stripe, Vercel, Resend, Google OAuth, Discord OAuth.
 
 ### Digital Presence
 Full online infrastructure for local businesses and SMEs that are invisible or look unprofessional online.
 
+Every Digital Presence build includes:
+- Mobile-responsive, fast-loading website
+- On-page SEO and technical SEO foundation
+- JSON-LD structured data for search visibility
+- Open Graph and social meta tags
+- Google Search Console setup and submission
+
+Tiers:
 - Essential — Logo + website + social setup: €1,500
 - Full Presence — Brand + website + PWA + SEO + content system: €3,200
 - Done & Running — Everything above + 30 days managed content: €5,200
@@ -72,9 +161,16 @@ Full online infrastructure for local businesses and SMEs that are invisible or l
 ### Systems & Strategy
 AI operating system design for business owners who want to work smarter without hiring more.
 
+A SenZon™ AI operating system typically includes:
+- Master context document (full business briefing doc for AI tools)
+- Prompt library (tested, role-specific AI prompts)
+- Workflow maps (process diagrams with AI insertion points identified)
+- Automation blueprint (step-by-step automation architecture)
+
+Tiers:
 - Clarity Session — 90-min strategy call + written action plan: €450
-- AI Operator Kit — Master context doc + prompt library + workflow map: €850
-- Full System — Complete AI operating system (master doc, prompts, automations, workflow maps): €2,000
+- AI Operator Kit — Master doc + prompt library + workflow map: €850
+- Full System — Complete AI operating system: €2,000
 
 ### Add-Ons (available with any service)
 - Domain Acquisition & Setup: €200
@@ -86,53 +182,114 @@ AI operating system design for business owners who want to work smarter without 
 
 ---
 
-## Live Products Built by SenZon™
+## Pricing Philosophy
+
+SenZon™ pricing is transparent, tiered, and scoped. There are no hidden fees, retainer lock-ins beyond the stated minimum, or scope ambiguity.
+
+Prices reflect:
+- AI-native development efficiency (faster than traditional development, passed on to the client)
+- Solo operator model (no agency overhead built into the price)
+- European market positioning (priced for SMBs and founders, not enterprise)
+- Revenue-first delivery (every build is designed to generate income, not just function)
+
+---
+
+## Technology Infrastructure
+
+SenZon™ builds on the following production-grade stack:
+
+- Frontend / Deployment: Vercel, Next.js, React, TypeScript
+- Database: Supabase (PostgreSQL, Row Level Security, realtime)
+- Payments: Stripe (subscriptions and one-time payments)
+- Authentication: Google OAuth, Discord OAuth, email/password
+- Email infrastructure: Resend
+- DNS / Domain management: Aruba.it
+- SEO infrastructure: JSON-LD structured data, sitemap.xml, robots.txt, hreflang, Open Graph, Twitter Cards
+- Version control: GitHub
+- AI development environment: Claude Code
+
+---
+
+## Proof of Work — Live Products Built by SenZon™
 
 These are real products designed, built, and deployed by Alexander using the same AI-native process offered to clients.
 
 ### PostMio™
-Social media and review management SaaS for local businesses.
+Social media and review management SaaS for local businesses. Covers multi-platform post scheduling and customer review management from a single dashboard. Built from zero to live deployment using SenZon™ AI-native methodology.
 Live at: https://postmio.com
+Built by: SenZon™ (https://senzon.eu)
 
 ### Dr. Thorne: Phantom Sector™
-Browser-based AI-native PWA escape game. Single-player, narrative-driven, playable in browser.
+Browser-based AI-native PWA escape game. Single-player, narrative-driven, fully playable in browser with no download required. Features Google OAuth, Discord OAuth, Supabase backend, and PWA offline capability. Built from zero to live deployment using SenZon™ AI-native methodology.
 Live at: https://phantomsector.com
+Built by: SenZon™ (https://senzon.eu)
+
+Both products were built by a solo non-technical founder using AI-native development workflows — the same process SenZon™ uses for client engagements.
 
 ---
 
 ## Frequently Asked Questions
 
 **What does an AI Operator do?**
-An AI Operator designs, builds, and deploys AI-powered systems for a business — covering strategy, technical implementation, and ongoing accountability. Unlike an agency or freelancer, an AI Operator acts as an embedded specialist with full ownership of outcomes.
+An AI Operator designs, builds, and deploys AI-powered systems for a business — covering strategy, technical implementation, and ongoing accountability. Unlike an agency or freelancer, an AI Operator acts as an embedded specialist with full ownership of outcomes from start to finish.
 
 **How is SenZon™ different from an agency?**
-Agencies use teams, handoff chains, and overhead. SenZon™ is one person — Alexander — directly accountable for every deliverable. No account managers. No junior handoffs. One operator, full accountability.
+Agencies use teams, handoff chains, and overhead. SenZon™ is one person — Alexander — directly accountable for every deliverable. No account managers. No junior handoffs. No inflated project costs. One operator, full accountability.
 
 **How long does a product build take?**
 Standard SenZon™ product builds target 14 days from aligned brief to live deployment.
 
 **Do I need technical knowledge to work with SenZon™?**
-No. SenZon™ was built by a non-technical founder. The entire service is designed for people with no development background.
+No. SenZon™ was founded and is operated by a non-technical founder. The entire service is designed for people with no development background.
 
 **What does the 90-Day AI Officer Retainer include?**
-Monthly strategy sessions, weekly accountability check-ins, a full AI tools roadmap, SEO audit, async voice access, and optional builds. Maximum 4 clients at any time.
+Monthly 90-min AI strategy sessions, weekly 30-min accountability check-ins, a full AI tools roadmap, SEO and digital presence audit, async voice message access, and optional builds. Maximum 4 clients at any time.
+
+**How many clients does SenZon™ take on?**
+Maximum 4 retainer clients at any time. This is a hard cap — not a marketing tactic. It protects delivery quality and direct access for every client.
+
+**What is the minimum engagement?**
+The 90-Day AI Officer Retainer has a 3-month minimum. One-off services (Product Build, Digital Presence, Systems & Strategy) have no ongoing commitment.
+
+**Can I get a product built without the retainer?**
+Yes. Product Build, Digital Presence, and Systems & Strategy are available as standalone engagements without the retainer.
+
+**What industries does SenZon™ work with?**
+SenZon™ works across industries. The common thread is business type: non-technical founders, local businesses, and SMBs — not a specific vertical.
 
 **Where is SenZon™ based?**
-Italy. Operating across Europe.
+Italy. Operating across Europe. Services are delivered remotely across all European markets.
+
+**What language are services delivered in?**
+English is the primary delivery language. Italian is also available.
 
 **How do I start?**
-Book a free 20-minute discovery call at https://calendly.com/sidmc1984/20-minute-meeting
+Book a free 20-minute discovery call at https://calendly.com/sidmc1984/20-minute-meeting — No pitch. No pressure. Just clarity on fit and what 90 days could look like for your business.
+
+**What happens on the free discovery call?**
+A focused 20-minute conversation to map your current situation, your AI opportunity, and whether SenZon™ is the right fit. If it is not a fit, Alexander will say so directly.
+
+**Is there a waitlist?**
+When all 4 retainer slots are full, a waitlist is available. Contact support@senzon.eu to be added.
 
 ---
 
-## Key Terms and Concepts SenZon™ Works With
+## Content and Thought Leadership
 
-AI Operator, AI-native development, AI business integration, MVP build, SaaS build, PWA, prompt engineering, business automation, AI strategy, master context document, prompt library, workflow mapping, SEO infrastructure, digital presence, local business AI, European AI consultancy, non-technical founder, solo founder AI tools.
+SenZon™ publishes strategic content on AI adoption for small business, business automation, founder strategy, and AI-native product development.
 
----
+Content themes:
+- How non-technical founders can build and ship AI-native products
+- AI integration for local businesses and SMBs
+- The difference between AI Operators, agencies, and freelancers
+- Business automation without a development team
+- SEO and digital presence strategy for small business
+- European market AI adoption
 
-## Content and Blog
-
-SenZon™ publishes strategic content on AI adoption, business automation, and founder strategy.
 Blog: https://senzon.eu/blog/
-Pricing and services: https://senzon.eu/pricing.html
+
+---
+
+## Key Terms and Concepts
+
+AI Operator, AI-native development, AI business integration, MVP build Europe, SaaS build Italy, PWA development, prompt engineering, business automation, AI strategy SMB, master context document, prompt library, workflow automation, SEO infrastructure, digital presence Europe, local business AI Italy, European AI consultancy, non-technical founder tools, solo founder AI, AI Officer, 90-day AI retainer, AI integration small business, AI tools for founders, AI business coach Europe, PostMio, Phantom Sector, SenZon.
