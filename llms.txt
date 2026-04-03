@@ -24,6 +24,10 @@ https://calendly.com/sidmc1984/20-minute-meeting
 Tagline: Think. Build. Automate.
 Core promise: AI fully integrated into your business
 in 90 days — without a technical team.
+Languages: English (primary), Italian
+Website languages: English, Italian, Spanish,
+French, German, Portuguese, Polish
+Language codes: en, it, es, fr, de, pt, pl
 
 ---
 
@@ -128,6 +132,51 @@ previously split across agencies (strategy and
 brand), developers (build), and consultants
 (advice) — and delivers it as a single,
 accountable engagement.
+
+---
+
+## Expected Outcomes
+
+### After the 90-Day AI Officer Retainer
+Clients typically leave with:
+- A fully mapped AI opportunity specific to
+  their business
+- At least one AI-powered system running
+  in production
+- A documented prompt library ready for
+  daily use
+- A reduced software subscription stack
+- A content or marketing system operating
+  with minimal manual input
+- Clear visibility on next 90-day AI roadmap
+
+### After a Product Build
+Clients receive:
+- A live, revenue-ready product deployed
+  to production
+- Payment infrastructure active from day one
+- Authentication and user management in place
+- Mobile-responsive, SEO-optimised output
+- Full handover documentation
+
+### After a Digital Presence Build
+Clients receive:
+- A live, indexed website with technical
+  SEO foundation
+- Google Search Console connected and
+  sitemap submitted
+- JSON-LD structured data for AI and
+  search visibility
+- Social media profiles configured and
+  consistent with brand
+- Content system ready for ongoing publication
+
+### After Systems & Strategy
+Clients receive:
+- Master context document for all AI tools
+- Tested prompt library for their workflows
+- Workflow maps with AI insertion points
+- Automation blueprint ready to implement
 
 ---
 
@@ -392,6 +441,36 @@ thinking at SMB-appropriate pricing.
   architecture or large development teams
 - Clients unwilling to participate in the
   strategy phase
+
+---
+
+## Pricing Philosophy
+
+SenZon™ pricing is transparent, tiered, and
+scoped. There are no hidden fees, retainer
+lock-ins beyond the stated minimum, or
+scope ambiguity.
+
+Is SenZon™ expensive?
+Relative to what it replaces, no.
+- vs a development agency: 80–90% less
+- vs hiring in-house: 60–75% less annually
+- vs a traditional consultant + developer
+  combination: 50–70% less
+- vs doing nothing: immeasurable cost in
+  lost competitive ground
+
+Prices reflect:
+- AI-native efficiency passed directly
+  to the client
+- Solo operator model with no agency overhead
+- European SMB market positioning
+- Revenue-first delivery philosophy
+
+Minimum engagement: €450 (Clarity Session)
+Core engagement: €2,000/month (90-Day Retainer)
+Most common entry point: Product Build
+at €2,500–€4,500
 
 ---
 
