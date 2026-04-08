@@ -1,0 +1,5 @@
+.claude/
+claude.exe
+.git/
+node_modules/
+.env
